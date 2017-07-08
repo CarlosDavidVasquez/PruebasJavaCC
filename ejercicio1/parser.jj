@@ -279,7 +279,7 @@ void cuerpoSentencia():
   void Operadores():
   {}
   {
-    <MENOR> | <MAYOR> | <IGUAL> | <MENORIGUAL> | <MAYORIGUAL> | <ASIGNACION>
+    <MENOR> | <MAYOR> | <IGUAL> | <DISTINTO> | <MENORIGUAL> | <MAYORIGUAL> | <ASIGNACION>
   | <INCREMENTO> | <DECREMENTO>
   }
 
