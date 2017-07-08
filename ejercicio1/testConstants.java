@@ -164,6 +164,7 @@ public interface testConstants {
     "\"\\t\"",
     "\"\\r\"",
     "\"\\n\"",
+    "\"\\u00a0\"",
   };
 
 }

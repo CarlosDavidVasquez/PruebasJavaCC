@@ -226,6 +226,8 @@ static private int jjMoveStringLiteralDfa0_0()
          return jjStopAtPos(0, 19);
       case 125:
          return jjStopAtPos(0, 20);
+      case 160:
+         return jjStopAtPos(0, 54);
       default :
          return jjMoveNfa_0(1, 0);
    }
@@ -746,7 +748,7 @@ public static final String[] jjstrLiteralImages = {
 "\46", "\75", "\53\53", "\55\55", "\74", "\76", "\74\75", "\76\75", "\75\75", 
 "\41\75", "\171", "\157", "\156\157", "\145\156\164\145\162\157", 
 "\144\157\142\154\145", "\143\141\144\145\156\141", "\151\156\164", "\146\154\157\141\164", 
-"\163\164\162\151\156\147", null, null, null, null, null, null, null, };
+"\163\164\162\151\156\147", null, null, null, null, null, null, null, null, };
 
 /** Lexer state names. */
 public static final String[] lexStateNames = {
@@ -756,7 +758,7 @@ static final long[] jjtoToken = {
    0x1ffffffffffffL, 
 };
 static final long[] jjtoSkip = {
-   0x3e000000000000L, 
+   0x7e000000000000L, 
 };
 static protected SimpleCharStream input_stream;
 static private final int[] jjrounds = new int[3];
