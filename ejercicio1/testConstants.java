@@ -119,7 +119,7 @@ public interface testConstants {
     "\"leer\"",
     "\"sistema\"",
     "\"si\"",
-    "\"si no\"",
+    "\"sino\"",
     "\"menusi\"",
     "\"caso\"",
     "\"predeterminado\"",
