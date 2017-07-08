@@ -20,7 +20,7 @@ TOKEN:
     <INICIAL: "main">{System.out.println("MAIN -> "+image);}
   | <INCLUDE: "include">{System.out.println("INCLUIR -> "+image);}
   | <MESSAGE: "mensaje">{System.out.println("MENSAJE -> "+image);}
-  | <RETURN: "regresar">{System.out.println("REGRESAR -> "+image);}
+  | <REGRESAR: "regresar">{System.out.println("REGRESAR -> "+image);}
   | <VOID: "void">{System.out.println("VOID -> "+image);}
 }
 
@@ -160,12 +160,18 @@ void funcionArgs():
   <VOID>
 }
 
+void funcionReturn():
+{}
+{
+  <REGRESAR> Valor()
+}
+
 // Estructura del programa general
   void metodoPrincipal():
   {}
   {
     tipoFuncion()<INICIAL><PARENTESISIZQ>funcionArgs()<PARENTESISDER>
-    <LLAVEIZQ> (Sentencias())* <LLAVEDER> <EOF>
+    <LLAVEIZQ> (Sentencias())* (funcionReturn()<PUNTOYCOMA>)? <LLAVEDER> <EOF>
   }
 
 void Sentencias():
