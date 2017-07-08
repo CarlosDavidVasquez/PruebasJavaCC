@@ -154,10 +154,16 @@ SKIP:
 " " | "\r\n" | "\t" | "\r" | "\n" | "\u00a0"
 }
 
+void Libreria():
+{}
+{
+  <STDIO> | <STDLIB>
+}
+
 void codigoFuente():
 {}
 {
-  (<NUMERAL><INCLUDE> <MENOR><IDENTIFICADOR><PUNTO><IDENTIFICADOR><MAYOR>)+
+  (<NUMERAL><INCLUDE> <MENOR> (Libreria() | <IDENTIFICADOR><PUNTO><IDENTIFICADOR>) <MAYOR>)+
   metodoPrincipal()
 }
 
