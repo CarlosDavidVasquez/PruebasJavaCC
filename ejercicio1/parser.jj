@@ -186,7 +186,7 @@ void Sentencias():
  void declaracionAsignacion():
  {}
  {
-   tipoVariable() <IDENTIFICADOR> (<ASIGNACION> Valor())?<PUNTOYCOMA> Sentencias()
+   tipoVariable() <IDENTIFICADOR> (<ASIGNACION> Valor())?<PUNTOYCOMA> (Sentencias())?
  }
 
   void tipoVariable():
