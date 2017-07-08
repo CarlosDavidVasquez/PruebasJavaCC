@@ -354,6 +354,8 @@ class test implements testConstants {
       case DOSPUNTOS:
       case COMA:
       case PUNTO:
+      case PORCENTAJE:
+      case AMPERSAND:
         Simbolos();
         break;
       default:
@@ -371,6 +373,8 @@ class test implements testConstants {
       case DOSPUNTOS:
       case COMA:
       case PUNTO:
+      case PORCENTAJE:
+      case AMPERSAND:
       case ASIGNACION:
       case INCREMENTO:
       case DECREMENTO:
@@ -488,6 +492,12 @@ class test implements testConstants {
     case LLAVEDER:
       jj_consume_token(LLAVEDER);
       break;
+    case PORCENTAJE:
+      jj_consume_token(PORCENTAJE);
+      break;
+    case AMPERSAND:
+      jj_consume_token(AMPERSAND);
+      break;
     default:
       jj_la1[20] = jj_gen;
       jj_consume_token(-1);
@@ -513,7 +523,7 @@ class test implements testConstants {
       jj_la1_init_1();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0x200000,0x0,0x1c8,0x1c8,0x20000000,0x0,0x200,0x1c8,0x1c8,0xc8,0x3000000,0x3000000,0x3000000,0x3000000,0x3000000,0x3000000,0xe6fe0000,0xe6fe0000,0x1000000,0xe0000000,0x6fe0000,};
+      jj_la1_0 = new int[] {0x200000,0x0,0x1c8,0x1c8,0x20000000,0x0,0x200,0x1c8,0x1c8,0xc8,0x3000000,0x3000000,0x3000000,0x3000000,0x3000000,0x3000000,0xfefe0000,0xfefe0000,0x1000000,0xe0000000,0x1efe0000,};
    }
    private static void jj_la1_init_1() {
       jj_la1_1 = new int[] {0x0,0x7000,0xe00,0xe00,0x0,0xe00,0x0,0xe00,0xe00,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1801f,0x1801f,0x18000,0x1f,0x0,};
