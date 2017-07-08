@@ -636,7 +636,7 @@ static private int jjStartNfaWithStates_0(int pos, int kind, int state)
    return jjMoveNfa_0(state, pos + 1);
 }
 static final long[] jjbitVec0 = {
-   0x0L, 0x0L, 0x0L, 0x20200000000L
+   0x0L, 0x0L, 0x0L, 0x220200000000L
 };
 static private int jjMoveNfa_0(int startState, int curPos)
 {
@@ -1151,7 +1151,7 @@ static void TokenLexicalActions(Token matchedToken)
          break;
       case 48 :
         image.append(input_stream.GetSuffix(jjimageLen + (lengthOfMatch = jjmatchedPos + 1)));
-                                                                                          System.out.println("IDENTIFICADOR -> "+image);
+                                                                                                    System.out.println("IDENTIFICADOR -> "+image);
          break;
       default :
          break;
