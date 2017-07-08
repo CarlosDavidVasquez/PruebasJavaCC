@@ -17,7 +17,7 @@ PARSER_END(test)
 // Palabras reservadas
 TOKEN:
 {
-    <MAIN: "main">{System.out.println("MAIN -> "+image);}
+    <INICIAL: "main">{System.out.println("MAIN -> "+image);}
   | <INCLUDE: "include">{System.out.println("INCLUIR -> "+image);}
   | <MESSAGE: "mensaje">{System.out.println("MENSAJE -> "+image);}
   | <RETURN: "regresar">{System.out.println("REGRESAR -> "+image);}
@@ -164,7 +164,7 @@ void funcionArgs():
   void metodoPrincipal():
   {}
   {
-    tipoFuncion()<MAIN><PARENTESISIZQ>funcionArgs()<PARENTESISDER>
+    tipoFuncion()<INICIAL><PARENTESISIZQ>funcionArgs()<PARENTESISDER>
     <LLAVEIZQ> (Sentencias())* <LLAVEDER> <EOF>
   }
 
