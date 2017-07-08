@@ -40,7 +40,7 @@ TOKEN:
   | <SWITCH: "menusi">{System.out.println("MENUSI -> "+image);}
   | <CASE: "caso">{System.out.println("CASO -> "+image);}
   | <PREDETERMINADO: "predeterminado">{System.out.println("PREDETERMINADO -> "+image);}
-  | <BREAK: "Salir">{System.out.println("SALIR -> "+image);}
+  | <BREAK: "salir">{System.out.println("SALIR -> "+image);}
 }
 
 TOKEN:
