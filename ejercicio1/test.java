@@ -343,6 +343,7 @@ class test implements testConstants {
       case MENORIGUAL:
       case MAYORIGUAL:
       case IGUAL:
+      case DISTINTO:
         Operadores();
         break;
       case PARENTESISIZQ:
@@ -383,6 +384,7 @@ class test implements testConstants {
       case MENORIGUAL:
       case MAYORIGUAL:
       case IGUAL:
+      case DISTINTO:
       case NUMERO:
       case IDENTIFICADOR:
         ;
@@ -440,6 +442,9 @@ class test implements testConstants {
       break;
     case IGUAL:
       jj_consume_token(IGUAL);
+      break;
+    case DISTINTO:
+      jj_consume_token(DISTINTO);
       break;
     case MENORIGUAL:
       jj_consume_token(MENORIGUAL);
@@ -526,7 +531,7 @@ class test implements testConstants {
       jj_la1_0 = new int[] {0x200000,0x0,0x1c8,0x1c8,0x20000000,0x0,0x200,0x1c8,0x1c8,0xc8,0x3000000,0x3000000,0x3000000,0x3000000,0x3000000,0x3000000,0xfefe0000,0xfefe0000,0x1000000,0xe0000000,0x1efe0000,};
    }
    private static void jj_la1_init_1() {
-      jj_la1_1 = new int[] {0x0,0x7000,0xe00,0xe00,0x0,0xe00,0x0,0xe00,0xe00,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1801f,0x1801f,0x18000,0x1f,0x0,};
+      jj_la1_1 = new int[] {0x0,0x7000,0xe00,0xe00,0x0,0xe00,0x0,0xe00,0xe00,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1803f,0x1803f,0x18000,0x3f,0x0,};
    }
 
   /** Constructor with InputStream. */
