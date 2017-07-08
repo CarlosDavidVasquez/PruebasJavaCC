@@ -186,11 +186,15 @@ class test implements testConstants {
     jj_consume_token(PARENTESISIZQ);
     comparacionSimple();
     jj_consume_token(PARENTESISDER);
+    jj_consume_token(LLAVEIZQ);
     cuerpoSentencia();
+    jj_consume_token(LLAVEDER);
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case ELSE:
       jj_consume_token(ELSE);
+      jj_consume_token(LLAVEIZQ);
       cuerpoSentencia();
+      jj_consume_token(LLAVEDER);
       break;
     default:
       jj_la1[8] = jj_gen;
@@ -239,7 +243,6 @@ class test implements testConstants {
   }
 
   static final public void cuerpoSentencia() throws ParseException {
-    jj_consume_token(LLAVEIZQ);
     label_4:
     while (true) {
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -276,7 +279,6 @@ class test implements testConstants {
         throw new ParseException();
       }
     }
-    jj_consume_token(LLAVEDER);
   }
 
   static final public void Acciones() throws ParseException {
