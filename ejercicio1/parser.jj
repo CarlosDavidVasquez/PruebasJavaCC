@@ -132,7 +132,7 @@ TOKEN:
 {
    <NUMERO: (["0"-"9"])+ >{System.out.println("NUMERO -> "+image);}
   // | <IDENTIFICADOR: ["a"-"z","A"-"Z"](["a"-"z","A"-"Z","0"-"9","_","\u00f1"])* >{System.out.println("IDENTIFICADOR -> "+image);}
-  | <IDENTIFICADOR: ["a"-"z","A"-"Z"](["a"-"z","A"-"Z","0"-"9","_","\u00e1","\u00e9", "\u00ed", "\u00f3", "\u00fa"])* >{System.out.println("IDENTIFICADOR -> "+image);}
+  | <IDENTIFICADOR: ["a"-"z","A"-"Z"](["a"-"z","A"-"Z","0"-"9","_","\u00e1","\u00e9", "\u00ed", "\u00f3", "\u00fa", "\u00f1"])* >{System.out.println("IDENTIFICADOR -> "+image);}
 }
 
 // Caracteres omitidos
