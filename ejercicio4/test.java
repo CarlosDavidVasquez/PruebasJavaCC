@@ -3,7 +3,7 @@ class test implements testConstants {
   public static void main(String[] args) throws ParseException{
     try{
       test analizador = new test(System.in);
-      analizador.Librerias();
+      analizador.codigoFuente();
       System.out.println("Se ha compilado con exito");
     }catch(ParseException e){
       System.out.println(e.getMessage());
@@ -11,22 +11,49 @@ class test implements testConstants {
     }
   }
 
-  static final public void Librerias() throws ParseException {
+  static final public void Libreria() throws ParseException {
+    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+    case STDIO:
+      jj_consume_token(STDIO);
+      break;
+    case STDLIB:
+      jj_consume_token(STDLIB);
+      break;
+    default:
+      jj_la1[0] = jj_gen;
+      jj_consume_token(-1);
+      throw new ParseException();
+    }
+  }
+
+  static final public void codigoFuente() throws ParseException {
     label_1:
     while (true) {
       jj_consume_token(NUMERAL);
       jj_consume_token(INCLUDE);
       jj_consume_token(MENOR);
-      jj_consume_token(IDENTIFICADOR);
-      jj_consume_token(PUNTO);
-      jj_consume_token(IDENTIFICADOR);
+      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+      case STDIO:
+      case STDLIB:
+        Libreria();
+        break;
+      case IDENTIFICADOR:
+        jj_consume_token(IDENTIFICADOR);
+        jj_consume_token(PUNTO);
+        jj_consume_token(IDENTIFICADOR);
+        break;
+      default:
+        jj_la1[1] = jj_gen;
+        jj_consume_token(-1);
+        throw new ParseException();
+      }
       jj_consume_token(MAYOR);
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
       case NUMERAL:
         ;
         break;
       default:
-        jj_la1[0] = jj_gen;
+        jj_la1[2] = jj_gen;
         break label_1;
       }
     }
@@ -45,7 +72,7 @@ class test implements testConstants {
       jj_consume_token(STRING);
       break;
     default:
-      jj_la1[1] = jj_gen;
+      jj_la1[3] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -83,7 +110,7 @@ class test implements testConstants {
         ;
         break;
       default:
-        jj_la1[2] = jj_gen;
+        jj_la1[4] = jj_gen;
         break label_2;
       }
       Sentencias();
@@ -94,7 +121,7 @@ class test implements testConstants {
       jj_consume_token(PUNTOYCOMA);
       break;
     default:
-      jj_la1[3] = jj_gen;
+      jj_la1[5] = jj_gen;
       ;
     }
     jj_consume_token(LLAVEDER);
@@ -121,7 +148,7 @@ class test implements testConstants {
       Acciones();
       break;
     default:
-      jj_la1[4] = jj_gen;
+      jj_la1[6] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -136,7 +163,7 @@ class test implements testConstants {
       Valor();
       break;
     default:
-      jj_la1[5] = jj_gen;
+      jj_la1[7] = jj_gen;
       ;
     }
     jj_consume_token(PUNTOYCOMA);
@@ -153,7 +180,7 @@ class test implements testConstants {
       Sentencias();
       break;
     default:
-      jj_la1[6] = jj_gen;
+      jj_la1[8] = jj_gen;
       ;
     }
   }
@@ -173,7 +200,7 @@ class test implements testConstants {
       jj_consume_token(CADENA);
       break;
     default:
-      jj_la1[7] = jj_gen;
+      jj_la1[9] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -203,7 +230,7 @@ class test implements testConstants {
       jj_consume_token(LLAVEDER);
       break;
     default:
-      jj_la1[8] = jj_gen;
+      jj_la1[10] = jj_gen;
       ;
     }
   }
@@ -222,7 +249,7 @@ class test implements testConstants {
         ;
         break;
       default:
-        jj_la1[9] = jj_gen;
+        jj_la1[11] = jj_gen;
         break label_3;
       }
     }
@@ -264,7 +291,7 @@ class test implements testConstants {
         ;
         break;
       default:
-        jj_la1[10] = jj_gen;
+        jj_la1[12] = jj_gen;
         break label_4;
       }
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -282,7 +309,7 @@ class test implements testConstants {
         Sentencias();
         break;
       default:
-        jj_la1[11] = jj_gen;
+        jj_la1[13] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
@@ -307,7 +334,7 @@ class test implements testConstants {
       jj_consume_token(MESSAGE);
       break;
     default:
-      jj_la1[12] = jj_gen;
+      jj_la1[14] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -321,7 +348,7 @@ class test implements testConstants {
         ;
         break;
       default:
-        jj_la1[13] = jj_gen;
+        jj_la1[15] = jj_gen;
         break label_5;
       }
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -335,7 +362,7 @@ class test implements testConstants {
         jj_consume_token(IDENTIFICADOR);
         break;
       default:
-        jj_la1[14] = jj_gen;
+        jj_la1[16] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
@@ -353,7 +380,7 @@ class test implements testConstants {
       jj_consume_token(COMILLADOB);
       break;
     default:
-      jj_la1[15] = jj_gen;
+      jj_la1[17] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -402,7 +429,7 @@ class test implements testConstants {
         Simbolos();
         break;
       default:
-        jj_la1[16] = jj_gen;
+        jj_la1[18] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
@@ -439,7 +466,7 @@ class test implements testConstants {
         ;
         break;
       default:
-        jj_la1[17] = jj_gen;
+        jj_la1[19] = jj_gen;
         break label_6;
       }
     }
@@ -451,7 +478,7 @@ class test implements testConstants {
       jj_consume_token(COMILLADOB);
       break;
     default:
-      jj_la1[18] = jj_gen;
+      jj_la1[20] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -487,7 +514,7 @@ class test implements testConstants {
       Cadena();
       break;
     default:
-      jj_la1[19] = jj_gen;
+      jj_la1[21] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -501,7 +528,7 @@ class test implements testConstants {
       jj_consume_token(NUMERO);
       break;
     default:
-      jj_la1[20] = jj_gen;
+      jj_la1[22] = jj_gen;
       ;
     }
   }
@@ -533,7 +560,7 @@ class test implements testConstants {
       jj_consume_token(DECREMENTO);
       break;
     default:
-      jj_la1[21] = jj_gen;
+      jj_la1[23] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -557,7 +584,7 @@ class test implements testConstants {
       jj_consume_token(PORCENTAJE);
       break;
     default:
-      jj_la1[22] = jj_gen;
+      jj_la1[24] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -575,7 +602,7 @@ class test implements testConstants {
       jj_consume_token(NOT);
       break;
     default:
-      jj_la1[23] = jj_gen;
+      jj_la1[25] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -617,7 +644,7 @@ class test implements testConstants {
       jj_consume_token(ASIGNACION);
       break;
     default:
-      jj_la1[24] = jj_gen;
+      jj_la1[26] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -633,7 +660,7 @@ class test implements testConstants {
   static public Token jj_nt;
   static private int jj_ntk;
   static private int jj_gen;
-  static final private int[] jj_la1 = new int[25];
+  static final private int[] jj_la1 = new int[27];
   static private int[] jj_la1_0;
   static private int[] jj_la1_1;
   static {
@@ -641,10 +668,10 @@ class test implements testConstants {
       jj_la1_init_1();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0x200000,0x0,0x5c8,0x10,0x5c8,0x20000000,0x5c8,0x0,0x200,0x800,0x5c8,0x5c8,0xc8,0x7000000,0x7000000,0x3000000,0xfcfe0000,0xfcfe0000,0x3000000,0x3000000,0xc0000000,0x0,0xc0000000,0x0,0x3cfe0000,};
+      jj_la1_0 = new int[] {0x0,0x0,0x200000,0x0,0x5c8,0x10,0x5c8,0x20000000,0x5c8,0x0,0x200,0x800,0x5c8,0x5c8,0xc8,0x7000000,0x7000000,0x3000000,0xfcfe0000,0xfcfe0000,0x3000000,0x3000000,0xc0000000,0x0,0xc0000000,0x0,0x3cfe0000,};
    }
    private static void jj_la1_init_1() {
-      jj_la1_1 = new int[] {0x0,0x1c0000,0x3c000,0x0,0x3c000,0x0,0x3c000,0x3c000,0x0,0x0,0x3c000,0x3c000,0x0,0x0,0x0,0x0,0x603fff,0x603fff,0x0,0x600000,0x7,0x7f8,0x7,0x3800,0x0,};
+      jj_la1_1 = new int[] {0x600000,0x1600000,0x0,0x1c0000,0x3c000,0x0,0x3c000,0x0,0x3c000,0x3c000,0x0,0x0,0x3c000,0x3c000,0x0,0x0,0x0,0x0,0x1803fff,0x1803fff,0x0,0x1800000,0x7,0x7f8,0x7,0x3800,0x0,};
    }
 
   /** Constructor with InputStream. */
@@ -665,7 +692,7 @@ class test implements testConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 25; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 27; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -679,7 +706,7 @@ class test implements testConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 25; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 27; i++) jj_la1[i] = -1;
   }
 
   /** Constructor. */
@@ -696,7 +723,7 @@ class test implements testConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 25; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 27; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -706,7 +733,7 @@ class test implements testConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 25; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 27; i++) jj_la1[i] = -1;
   }
 
   /** Constructor with generated Token Manager. */
@@ -722,7 +749,7 @@ class test implements testConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 25; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 27; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -731,7 +758,7 @@ class test implements testConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 25; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 27; i++) jj_la1[i] = -1;
   }
 
   static private Token jj_consume_token(int kind) throws ParseException {
@@ -782,12 +809,12 @@ class test implements testConstants {
   /** Generate ParseException. */
   static public ParseException generateParseException() {
     jj_expentries.clear();
-    boolean[] la1tokens = new boolean[61];
+    boolean[] la1tokens = new boolean[63];
     if (jj_kind >= 0) {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
     }
-    for (int i = 0; i < 25; i++) {
+    for (int i = 0; i < 27; i++) {
       if (jj_la1[i] == jj_gen) {
         for (int j = 0; j < 32; j++) {
           if ((jj_la1_0[i] & (1<<j)) != 0) {
@@ -799,7 +826,7 @@ class test implements testConstants {
         }
       }
     }
-    for (int i = 0; i < 61; i++) {
+    for (int i = 0; i < 63; i++) {
       if (la1tokens[i]) {
         jj_expentry = new int[1];
         jj_expentry[0] = i;

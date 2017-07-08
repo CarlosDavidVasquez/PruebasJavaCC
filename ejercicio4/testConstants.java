@@ -113,9 +113,13 @@ public interface testConstants {
   /** RegularExpression Id. */
   int STRING = 52;
   /** RegularExpression Id. */
-  int NUMERO = 53;
+  int STDIO = 53;
   /** RegularExpression Id. */
-  int IDENTIFICADOR = 54;
+  int STDLIB = 54;
+  /** RegularExpression Id. */
+  int NUMERO = 55;
+  /** RegularExpression Id. */
+  int IDENTIFICADOR = 56;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -175,6 +179,8 @@ public interface testConstants {
     "\"int\"",
     "\"float\"",
     "\"string\"",
+    "\"stdio.h\"",
+    "\"stdlib.h\"",
     "<NUMERO>",
     "<IDENTIFICADOR>",
     "\" \"",
