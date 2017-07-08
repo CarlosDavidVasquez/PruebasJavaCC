@@ -217,6 +217,32 @@ void sentenciaIf():
   )?
 }
 
+void sentenciaMenuSi():
+      {}
+      {
+        <SWITCH><PARENTIZQ><IDENTIFICADOR><PARENTDER><LLAVEIZQ>
+          (Caso())+
+          casoPredeterminado()
+        <LLAVEDER>
+        Sentencias()
+      }
+
+void Caso():
+{}
+{
+  <CASE>Valor()<DOSPUNTOS>
+    cuerpoSentencia()
+  <BREAK><PUNTOYCOMA>
+}
+
+void casoPredeterminado():
+{}
+{
+  <PREDETERMINADO><DOSPUNTOS>
+    cuerpoSentencia()
+  <BREAK><PUNTOYCOMA>
+}
+
 void cuerpoSentencia():
 {}
 {
