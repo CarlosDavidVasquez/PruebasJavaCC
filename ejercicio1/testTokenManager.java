@@ -1076,7 +1076,7 @@ static void TokenLexicalActions(Token matchedToken)
       case 33 :
         image.append(jjstrLiteralImages[33]);
         lengthOfMatch = jjstrLiteralImages[33].length();
-                  System.out.println("MAYORQUE -> "+image);
+                  System.out.println("MAYORQUE -> "+image+"\u005cr\u005cn");
          break;
       case 34 :
         image.append(jjstrLiteralImages[34]);
