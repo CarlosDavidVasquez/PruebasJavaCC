@@ -931,7 +931,7 @@ static void TokenLexicalActions(Token matchedToken)
       case 4 :
         image.append(jjstrLiteralImages[4]);
         lengthOfMatch = jjstrLiteralImages[4].length();
-                         System.out.println("REGRESAR -> "+image);
+                           System.out.println("REGRESAR -> "+image);
          break;
       case 5 :
         image.append(jjstrLiteralImages[5]);

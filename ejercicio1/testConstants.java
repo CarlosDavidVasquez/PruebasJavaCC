@@ -15,7 +15,7 @@ public interface testConstants {
   /** RegularExpression Id. */
   int MESSAGE = 3;
   /** RegularExpression Id. */
-  int RETURN = 4;
+  int REGRESAR = 4;
   /** RegularExpression Id. */
   int VOID = 5;
   /** RegularExpression Id. */
