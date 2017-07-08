@@ -4,7 +4,7 @@ class test{
   public static void main(String[] args) throws ParseException{
     try{
       test analizador = new test(System.in);
-      analizador.Programa();
+      analizador.Librerias();
       System.out.println("Se ha compilado con exito");
     }catch(ParseException e){
       System.out.println(e.getMessage());
@@ -17,9 +17,18 @@ PARSER_END(test)
 // Palabras reservadas
 TOKEN:
 {
-    <MAIN: "void Main()">{System.out.println("MAIN -> "+image);}
-  | <PROGRAMA: "Programa">{System.out.println("PROGRAMA -> "+image);}
+    <MAIN: "int main(void)">{System.out.println("MAIN -> "+image);}
+  | <INCLUDE: "include">{System.out.println("INCLUIR -> "+image);}
   | <MESSAGE: "mensaje">{System.out.println("MENSAJE -> "+image);}
+  | <RETURN: "regresar">{System.out.println("REGRESAR -> "+image);}
+}
+
+// Entradas y salidas del sistema en consola
+TOKEN:
+{}
+{
+    <LEER: "leer">{System.out.println("LEER -> "+image);}
+   | <SISTEMA: "sistema">{System.out.println("SISTEMA -> "+image);}
 }
 
 // Estructuras de control
@@ -54,10 +63,14 @@ TOKEN:
 // Signos
 TOKEN:
 {
-   <PUNTOYCOMA: ";">{System.out.println("PUNTOYCOMA -> "+image+"\r\n");}
-  | <DOSPUNTOS: ":">{System.out.println("DOSPUNTOS -> "+image+"\r\n");}
-  | <COMILLADOB: "\"">{System.out.println("COMILLADOBLE -> "+image+"\r\n");}
-  | <COMA: ",">{System.out.println("COMA -> "+image+"\r\n");}
+    <NUMERAL: "#">{System.out.println("NUMERAL -> "+image);}
+  | <PUNTOYCOMA: ";">{System.out.println("PUNTOYCOMA -> "+image+"\r\n");}
+  | <DOSPUNTOS: ":">{System.out.println("DOSPUNTOS -> "+image);}
+  | <COMILLADOB: "\"">{System.out.println("COMILLADOBLE -> "+image);}
+  | <COMA: ",">{System.out.println("COMA -> "+image);}
+  | <PUNTO: ".">{System.out.println("PUNTO -> "+image);}
+  | <PORCENTAJE: "%">{System.out.println("PORCENTAJE -> "+image);}
+  | <AMPERSAND: "&">{System.out.println("AMPERSAND -> "+image);}
 }
 
 // Operadores
@@ -81,6 +94,7 @@ TOKEN:
   | <MENORIGUAL: "<=" >{System.out.println("MENOROIGUALQUE -> "+image);}
   | <MAYORIGUAL: ">=" >{System.out.println("MAYOROIGUALQUE -> "+image);}
   | <IGUAL: "==" >{System.out.println("IGUAL -> "+image);}
+  | <DISTINTO: "!=" >{System.out.println("DISTINTO -> "+image);}
 }
 
 // Operadores Logicos
@@ -99,8 +113,18 @@ TOKEN:
 // Tipos de Variables
 TOKEN:
 {
-    <INT: "entero" >{System.out.println("ENTERO ->"+image);}
-  //| <DOUBLE: ["0"-"9"]([".", "0"-"9"])+ >{System.out.println("DOUBLE -> "+image);}
+    <ENTERO: "entero" >{System.out.println("ENTERO ->"+image);}
+  | <DOBLE: "doble" >{System.out.println("DOBLE -> "+image);}
+  | <CADENA: "cadena" >{System.out.println("CADENA -> "+image);}
+}
+
+// Tipos de funciones
+TOKEN:
+{
+    <INT: "int" >{System.out.println("TYPEINT ->"+image);}
+  | <FLOAT: "float" >{System.out.println("TYPEFLOAT ->"+image);}
+  | <STRING: "string" >{System.out.println("TYPESTRING ->"+image);
+  }
 }
 
 // Tipos de valores
@@ -117,20 +141,25 @@ SKIP:
   " " | "\r\n" | "\t" | "\r" | "\n"
 }
 
-// Estructura del programa general
-  void Programa():
-  {}
-  {
-    <PROGRAMA><IDENTIFICADOR><LLAVEIZQ>metodoPrincipal()<LLAVEDER><EOF>
-  }
+void Librerias():
+{}
+{
+  (<NUMERAL><INCLUIR> <MENOR><IDENTIFICADOR><PUNTO><IDENTIFICADOR><MAYOR>)+
+  metodoPrincipal()
+}
 
-// Estructura del metodo principal MAIN
+void tipoFuncion():
+{}
+{
+  <INT> | <FLOAT> | <STRING>
+}
+
+// Estructura del programa general
   void metodoPrincipal():
   {}
   {
-    <MAIN>
-    // <LLAVEIZQ>Sentencias()<LLAVEDER>
-    <LLAVEIZQ>Sentencias()<LLAVEDER>
+    tipoFuncion()<MAIN>
+    <LLAVEIZQ> (Sentencias())* <LLAVEDER> <EOF>
   }
 
 void Sentencias():
@@ -141,21 +170,16 @@ void Sentencias():
   | sentenciaFor()
 }
 
-  // Declaracion y Asignacion
-  void declaracionAsignacion():
-  {}
-  {
-    (tipoVariable())? <IDENTIFICADOR> <ASIGNACION> Valor() <PUNTOYCOMA> Sentencias()
-  }
+ void declaracionAsignacion():
+ {}
+ {
+   tipoVariable() <IDENTIFICADOR> (<ASIGNACION> Valor())?<PUNTOYCOMA> Sentencias()
+ }
 
-// ---------------
-
-// Tipos de Variables
   void tipoVariable():
   {}
   {
-        <INT>
-      //| <DOUBLE>
+    <ENTERO> | <DOBLE> | <CADENA>
   }
 // ---------------
 
@@ -166,51 +190,48 @@ void Sentencias():
 //   | Sentencias()
 // }
 
-// Estructura Repetitiva FOR
-  void sentenciaFor():
-  {}
-  {
-    <FOR>forArgs()
-    cuerpoSentencia()
-  }
-
-void forArgs():
+void sentenciaIf():
 {}
 {
-  <PARENTESISIZQ>
-    asignacionFor() <PUNTOYCOMA>
-    comparacionSimple()<PUNTOYCOMA>
-    usoIncremento()
-  <PARENTESISDER>
-}
-
-void asignacionFor():
-{}
-{
-  <IDENTIFICADOR> <ASIGNACION> <NUMERO>
+  <IF> <PARENTESISIZQ> comparacionSimple() <PARENTESISDER>
+  cuerpoSentencia()
+  (
+    <ELSE> cuerpoSentencia()
+  )?
 }
 
 void cuerpoSentencia():
 {}
 {
-  <LLAVEIZQ> Acciones() <LLAVEDER>
+  <LLAVEIZQ> (Acciones() | Sentencias())* <LLAVEDER>
 }
 
-// Acciones posibles a ejecutar
   void Acciones():
   {}
   {
-    Mensaje()<PUNTOYCOMA>
+      Mensaje()<PUNTOYCOMA>
+    | Sistema()<PUNTOYCOMA>
+    | Leer()<PUNTOYCOMA>
   }
-// ---------------
 
-// Estructura del Metodo mostrar un Mensaje
+// Metodos propios del lenguaje
   void Mensaje():
   {}
   {
-    <MESSAGE><PARENTESISIZQ> (Cadena() | <COMA> <IDENTIFICADOR>)* <PARENTESISDER>
+    <MESSAGE><PARENTESISIZQ> (Cadena() | <COMA><AMPERSAND><IDENTIFICADOR>)* <PARENTESISDER>
   }
-// ---------------
+
+  void Sistema():
+  {}
+  {
+    <SISTEMA><PARENTESISIZQ> (Cadena() | <COMA><AMPERSAND><IDENTIFICADOR>)* <PARENTESISDER>
+  }
+
+  void Leer():
+  {}
+  {
+    <LEER><PARENTESISIZQ> (Cadena() | <COMA><AMPERSAND><IDENTIFICADOR>)* <PARENTESISDER>
+  }
 
 // Estructura de una Cadena de texto
   void Cadena():
@@ -218,13 +239,11 @@ void cuerpoSentencia():
   {
     <COMILLADOB>
     (
-      <IDENTIFICADOR> | <NUMERO> | Operadores()
+      <IDENTIFICADOR> | <NUMERO> | Operadores() | Simbolos()
     )+
     <COMILLADOB>
   }
-// ---------------
 
-// Operaciones de Incrementos o Decrementos
   void usoIncremento():
   {}
   {
@@ -237,29 +256,28 @@ void cuerpoSentencia():
     <IDENTIFICADOR><DECREMENTO>
   }
 
-// ---------------
+   void comparacionSimple():
+   {}
+   {
+     Valor() Operadores() Valor()
+   }
 
-  // Comparacion Simple
-    void comparacionSimple():
-    {}
-    {
-      Valor() Operadores() Valor()
-    }
-
-    // Tipos de valores
-      void Valor():
-      {}
-      {
-        <IDENTIFICADOR> | <NUMERO>
-        // | Cadena()
-      }
-    // ---------------
-
-// Tipos de Operadores
+// Tipos de valores
+  void Valor():
+  {}
+  {
+    <IDENTIFICADOR> | <NUMERO> | Cadena()
+  }
+  
   void Operadores():
   {}
   {
     <MENOR> | <MAYOR> | <IGUAL> | <MENORIGUAL> | <MAYORIGUAL> | <ASIGNACION>
   | <INCREMENTO> | <DECREMENTO>
   }
-// ---------------
+
+  void Simbolos():
+  {}
+  {
+    <NUMERAL> | <COMA> | <PUNTO> | <DOSPUNTOS> | <PUNTOYCOMA> | <PARENTESISIZQ> | <PARENTESISDER> | <LLAVEIZQ> | <LLAVEDER>
+  }
