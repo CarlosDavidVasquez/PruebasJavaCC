@@ -69,14 +69,18 @@ TOKEN:
   | <COMILLADOB: "\"">{System.out.println("COMILLADOBLE -> "+image);}
   | <COMA: ",">{System.out.println("COMA -> "+image);}
   | <PUNTO: ".">{System.out.println("PUNTO -> "+image);}
-  | <PORCENTAJE: "%">{System.out.println("PORCENTAJE -> "+image);}
   | <AMPERSAND: "&">{System.out.println("AMPERSAND -> "+image);}
 }
 
-// Operadores
+// Operadores Aritmeticos
 TOKEN:
 {
-    <ASIGNACION: "=" >{System.out.println("ASIGNACION -> "+image);}
+      <ASIGNACION: "=" >{System.out.println("ASIGNACION -> "+image);}
+    | <MAS: "+" >{System.out.println("MAS -> "+image);}
+    | <MENOS: "-" >{System.out.println("MENOS -> "+image);}
+    | <ASTERISCO: "*" >{System.out.println("ASTERISCO -> "+image);}
+    | <BARRA: "\\" >{System.out.println("BARRA -> "+image);}
+    | <PORCENTAJE: "%">{System.out.println("PORCENTAJE -> "+image);}
 }
 
 // Incremento o Decremento
@@ -238,7 +242,8 @@ void cuerpoSentencia():
   {
     <COMILLADOB>
     (
-      <IDENTIFICADOR> | <NUMERO> | Operadores() | Simbolos()
+        <IDENTIFICADOR> | <NUMERO> | operadoresComparacion() 
+      | operadoresComparacion() | Simbolos()
     )+ 
     <COMILLADOB>
   }
@@ -258,25 +263,33 @@ void cuerpoSentencia():
    void comparacionSimple():
    {}
    {
-     Valor() Operadores() Valor()
+     Valor() operadoresComparacion() Valor()
    }
 
 // Tipos de valores
   void Valor():
   {}
   {
-    <IDENTIFICADOR> | <NUMERO> | Cadena()
+    <IDENTIFICADOR> | <NUMERO> | Cadena() 
+    ( operadoresAritmeticos() <IDENTIFICADOR> | <NUMERO> | Cadena() )?
   }
   
-  void Operadores():
+  void operadoresComparacion():
   {}
   {
-    <MENOR> | <MAYOR> | <IGUAL> | <DISTINTO> | <MENORIGUAL> | <MAYORIGUAL> | <ASIGNACION>
-  | <INCREMENTO> | <DECREMENTO>
+    <MENOR> | <MAYOR> | <IGUAL> | <DISTINTO> | <MENORIGUAL> | <MAYORIGUAL>
+  | <INCREMENTO> | <DECREMENTO> 
+  }
+
+  void operadoresAritmeticos():
+  {}
+  {
+    <MAS> | <MENOS> | <ASTERISCO> | <BARRA> | <PORCENTAJE>
   }
 
   void Simbolos():
   {}
   {
-    <NUMERAL> | <COMA> | <PUNTO> | <DOSPUNTOS> | <PUNTOYCOMA> | <PARENTESISIZQ> | <PARENTESISDER> | <LLAVEIZQ> | <LLAVEDER> | <PORCENTAJE> | <AMPERSAND>
+      <NUMERAL> | <COMA> | <PUNTO> | <DOSPUNTOS> | <PUNTOYCOMA> | <PARENTESISIZQ> 
+    | <PARENTESISDER> | <LLAVEIZQ> | <LLAVEDER> | <AMPERSAND> | <ASIGNACION>
   }
