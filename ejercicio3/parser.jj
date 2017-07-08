@@ -212,9 +212,9 @@ void sentenciaIf():
 {}
 {
   <IF> <PARENTESISIZQ> comparacionSimple() <PARENTESISDER>
-  cuerpoSentencia()
+  <LLAVEIZQ>cuerpoSentencia()<LLAVEDER>
   (
-    <ELSE> cuerpoSentencia()
+    <ELSE> <LLAVEIZQ>cuerpoSentencia()<LLAVEDER>
   )?
 }
 
@@ -247,7 +247,7 @@ void casoPredeterminado():
 void cuerpoSentencia():
 {}
 {
-  <LLAVEIZQ> (Acciones() | Sentencias())* <LLAVEDER>
+  (Acciones() | Sentencias())*
 }
 
   void Acciones():
