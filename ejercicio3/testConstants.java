@@ -131,7 +131,7 @@ public interface testConstants {
     "\"menusi\"",
     "\"caso\"",
     "\"predeterminado\"",
-    "\"Salir\"",
+    "\"salir\"",
     "\"mientras\"",
     "\"hacer\"",
     "\"para\"",
