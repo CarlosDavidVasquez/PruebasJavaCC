@@ -221,7 +221,7 @@ void sentenciaIf():
 void sentenciaMenuSi():
       {}
       {
-        <SWITCH><PARENTIZQ><IDENTIFICADOR><PARENTDER><LLAVEIZQ>
+        <SWITCH><PARENTESISIZQ><IDENTIFICADOR><PARENTESISDER><LLAVEIZQ>
           (Caso())+
           casoPredeterminado()
         <LLAVEDER>
