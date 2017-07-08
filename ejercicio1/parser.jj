@@ -138,7 +138,7 @@ TOKEN:
 // Caracteres omitidos
 SKIP:
 {
-  " " | "\r\n" | "\t" | "\r" | "\n"
+" " | "\r\n" | "\t" | "\r" | "\n" | "\u00a0"
 }
 
 void Librerias():
