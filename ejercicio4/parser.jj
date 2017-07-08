@@ -4,7 +4,7 @@ class test{
   public static void main(String[] args) throws ParseException{
     try{
       test analizador = new test(System.in);
-      analizador.Librerias();
+      analizador.codigoFuente();
       System.out.println("Se ha compilado con exito");
     }catch(ParseException e){
       System.out.println(e.getMessage());
@@ -154,7 +154,7 @@ SKIP:
 " " | "\r\n" | "\t" | "\r" | "\n" | "\u00a0"
 }
 
-void Librerias():
+void codigoFuente():
 {}
 {
   (<NUMERAL><INCLUDE> <MENOR><IDENTIFICADOR><PUNTO><IDENTIFICADOR><MAYOR>)+
