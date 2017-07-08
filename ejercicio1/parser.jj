@@ -166,7 +166,8 @@ void Sentencias():
 {
     // ( declaracionAsignacion() | sentenciaFor() )*
     declaracionAsignacion()
-  | sentenciaFor()
+  | sentenciaIf()
+  | Acciones()
 }
 
  void declaracionAsignacion():
