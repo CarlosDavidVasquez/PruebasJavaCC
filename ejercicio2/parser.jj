@@ -270,7 +270,7 @@ void cuerpoSentencia():
   void Valor():
   {}
   {
-    <IDENTIFICADOR> | <NUMERO> | Cadena() 
+    (<IDENTIFICADOR> | <NUMERO> | Cadena())
     ( operadoresAritmeticos() <IDENTIFICADOR> | <NUMERO> | Cadena() )?
   }
   
