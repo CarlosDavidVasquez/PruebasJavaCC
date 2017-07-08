@@ -66,6 +66,7 @@ TOKEN:
     <NUMERAL: "#">{System.out.println("NUMERAL -> "+image);}
   | <PUNTOYCOMA: ";">{System.out.println("PUNTOYCOMA -> "+image+"\r\n");}
   | <DOSPUNTOS: ":">{System.out.println("DOSPUNTOS -> "+image);}
+  | <COMILLA: "\'">{System.out.println("COMILLA -> "+image);}  
   | <COMILLADOB: "\"">{System.out.println("COMILLADOBLE -> "+image);}
   | <COMA: ",">{System.out.println("COMA -> "+image);}
   | <PUNTO: ".">{System.out.println("PUNTO -> "+image);}
