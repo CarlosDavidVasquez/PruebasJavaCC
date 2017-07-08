@@ -109,7 +109,7 @@ public interface testConstants {
   /** Literal token values. */
   String[] tokenImage = {
     "<EOF>",
-    "\"int main(void)\"",
+    "\"main(void)\"",
     "\"include\"",
     "\"mensaje\"",
     "\"regresar\"",
