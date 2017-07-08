@@ -25,7 +25,6 @@ TOKEN:
 
 // Entradas y salidas del sistema en consola
 TOKEN:
-{}
 {
     <LEER: "leer">{System.out.println("LEER -> "+image);}
    | <SISTEMA: "sistema">{System.out.println("SISTEMA -> "+image);}
