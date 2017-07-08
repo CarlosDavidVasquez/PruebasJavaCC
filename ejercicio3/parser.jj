@@ -270,7 +270,7 @@ void cuerpoSentencia():
     <COMILLADOB>
     (
         <IDENTIFICADOR> | <NUMERO> | operadoresComparacion() 
-      | operadoresAritmeticos() | Simbolos()
+      | operadoresAritmeticos() | operadoresLogicos() | Simbolos()
     )+ 
     <COMILLADOB>
   }
@@ -314,7 +314,7 @@ void cuerpoSentencia():
     <MAS> | <MENOS> | <ASTERISCO> | <BARRA> | <PORCENTAJE>
   }
 
-  void operadoresAritmeticos():
+  void operadoresLogicos():
   {}
   {
     <AND> | <OR> | <NOT>
