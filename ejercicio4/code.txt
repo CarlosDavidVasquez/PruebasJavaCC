@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    caracter c;
+           
+    mensaje("Introduzca un carácter:");
+    leer("%c",&c);
+   
+    menusi (c)
+    {
+           caso 'a':
+                mensaje("Es vocal\n");
+                salir;
+           caso 'e':
+                mensaje("Es vocal\n");
+                salir;
+           caso 'i':
+                mensaje("Es vocal\n");
+                salir;
+           caso 'o':
+                mensaje("Es vocal\n");
+                salir;
+           caso 'u': 
+                mensaje("Es vocal\n");
+                salir;       
+           predeterminado:
+               mensaje("No es vocal\n");
+                salir;
+    }
+   
+    sistema("PAUSA");
+    regresar 0;
+}

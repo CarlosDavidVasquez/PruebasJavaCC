@@ -1,0 +1,20 @@
+#include <stdio.h>
+ 
+int main()
+{
+  entero numero;
+ 
+  mensaje("Teclea un número (0 para salir): ");
+  leer("%d", &numero);
+  mientras (numero!=0)
+  {
+    si (numero > 0) 
+        mensaje("Es positivo\n");
+    sino 
+        mensaje("Es negativo\n");
+    mensaje("Teclea otro número (0 para salir): ");
+    leer("%d", &numero);
+  }
+ 
+  regresar 0;
+}

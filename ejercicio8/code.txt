@@ -1,0 +1,11 @@
+#include <stdio.h>
+ 
+int main()
+{
+  caracter letra;
+ 
+  para (letra='z'; letra>='a'; letra-=2)
+    mensaje("%c", letra);
+ 
+  regresar 0;
+}

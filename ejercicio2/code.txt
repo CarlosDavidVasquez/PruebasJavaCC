@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    entero i;
+    mensaje("Introduzca número:");
+    leer("%d",&i);
+
+    si (i%2==0) {
+      mensaje("Es par.");
+    }
+    sino
+    {
+      mensaje("Es impar.");
+    }
+
+    sistema("PAUSA");     
+    regresar 0;
+}

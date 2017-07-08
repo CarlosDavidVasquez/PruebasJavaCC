@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    entero i;
+    mensaje("Introduzca número del 1 al 7:");
+    leer("%d",&i);
+
+    menusi(i){
+              caso 1:
+                   mensaje("Lunes\n");
+                   salir;
+              caso 2:
+                   mensaje("Martes\n");
+                   salir;
+              caso 3:
+                  mensaje("Miércoles\n");
+                   salir;
+              caso 4:
+                  mensaje("Jueves\n");
+                   salir;
+              caso 5:
+                  mensaje("Viernes\n");
+                   salir;
+              caso 6:
+                  mensaje("Sábado\n");
+                   salir;
+              caso 7:
+                  mensaje("Domingo\n");
+                   salir;
+              predeterminado:
+                   mensaje("Opción no válida\n");
+                   salir;
+    }
+
+    sistema("PAUSA");     
+    regresar 0;
+}

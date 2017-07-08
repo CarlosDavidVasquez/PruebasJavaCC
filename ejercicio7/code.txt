@@ -1,0 +1,12 @@
+#include <stdio.h>
+ 
+int main()
+{
+  entero tabla, numero;
+ 
+  para (tabla=1; tabla<=5; tabla++)
+    para (numero=1; numero<=10; numero++)
+      mensaje("%d por %d es %d\n", tabla, numero, tabla*numero);
+ 
+  regresar 0;
+}

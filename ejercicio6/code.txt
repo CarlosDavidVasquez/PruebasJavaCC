@@ -1,0 +1,19 @@
+#include <stdio.h>
+ 
+int main()
+{
+  entero valida = 711;
+  entero clave;
+ 
+  hacer
+  {
+    mensaje("Introduzca su clave numérica: ");
+    leer("%d", &clave);
+    si (clave != valida) 
+        mensaje("No válida!\n");
+  }
+  mientras(clave != valida);
+  mensaje("Aceptada.\n");
+ 
+  regresar 0;
+}
