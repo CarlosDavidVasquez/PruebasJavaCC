@@ -17,10 +17,11 @@ PARSER_END(test)
 // Palabras reservadas
 TOKEN:
 {
-    <MAIN: "main(void)">{System.out.println("MAIN -> "+image);}
+    <MAIN: "main">{System.out.println("MAIN -> "+image);}
   | <INCLUDE: "include">{System.out.println("INCLUIR -> "+image);}
   | <MESSAGE: "mensaje">{System.out.println("MENSAJE -> "+image);}
   | <RETURN: "regresar">{System.out.println("REGRESAR -> "+image);}
+  | <VOID: "void">{System.out.println("VOID -> "+image);}
 }
 
 // Entradas y salidas del sistema en consola
@@ -153,11 +154,17 @@ void tipoFuncion():
   <INT> | <FLOAT> | <STRING>
 }
 
+void funcionArgs():
+{}
+{
+  <VOID>
+}
+
 // Estructura del programa general
   void metodoPrincipal():
   {}
   {
-    tipoFuncion()<MAIN>
+    tipoFuncion()<MAIN><PARENTESISIZQ>funcionArgs()<PARENTESISDER>
     <LLAVEIZQ> (Sentencias())* <LLAVEDER> <EOF>
   }
 
