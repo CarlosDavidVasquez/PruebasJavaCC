@@ -60,7 +60,7 @@ TOKEN:
   | <LLAVEDER: "}">{System.out.println("LLAVEDER -> "+image+"\r\n");}
 }
 
-// Signos
+// Simbolos
 TOKEN:
 {
     <NUMERAL: "#">{System.out.println("NUMERAL -> "+image);}
