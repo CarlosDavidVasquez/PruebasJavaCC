@@ -314,6 +314,12 @@ void cuerpoSentencia():
     <MAS> | <MENOS> | <ASTERISCO> | <BARRA> | <PORCENTAJE>
   }
 
+  void operadoresAritmeticos():
+  {}
+  {
+    <AND> | <OR> | <NOT>
+  }
+
   void Simbolos():
   {}
   {
