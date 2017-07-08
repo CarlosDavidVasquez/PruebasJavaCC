@@ -90,7 +90,7 @@ TOKEN:
 TOKEN:
 {
    <MENOR: "<" >{System.out.println("MENORQUE -> "+image);}
-  | <MAYOR: ">" >{System.out.println("MAYORQUE -> "+image);}
+  | <MAYOR: ">" >{System.out.println("MAYORQUE -> "+image+"\r\n");}
   | <MENORIGUAL: "<=" >{System.out.println("MENOROIGUALQUE -> "+image);}
   | <MAYORIGUAL: ">=" >{System.out.println("MAYOROIGUALQUE -> "+image);}
   | <IGUAL: "==" >{System.out.println("IGUAL -> "+image);}
@@ -222,28 +222,14 @@ void cuerpoSentencia():
   void Acciones():
   {}
   {
-      Mensaje()<PUNTOYCOMA>
-    | Sistema()<PUNTOYCOMA>
-    | Leer()<PUNTOYCOMA>
+      metodosReservados()<PUNTOYCOMA>
   }
 
 // Metodos propios del lenguaje
-  void Mensaje():
+  void metodosReservados():
   {}
   {
-    <MESSAGE><PARENTESISIZQ> (Cadena() | <COMA><AMPERSAND><IDENTIFICADOR>)* <PARENTESISDER>
-  }
-
-  void Sistema():
-  {}
-  {
-    <SISTEMA><PARENTESISIZQ> (Cadena() | <COMA><AMPERSAND><IDENTIFICADOR>)* <PARENTESISDER>
-  }
-
-  void Leer():
-  {}
-  {
-    <LEER><PARENTESISIZQ> (Cadena() | <COMA><AMPERSAND><IDENTIFICADOR>)* <PARENTESISDER>
+    (<LEER> | <SISTEMA> | <MESSAGE>) <PARENTESISIZQ> (Cadena() | <COMA><AMPERSAND><IDENTIFICADOR>)* <PARENTESISDER>
   }
 
 // Estructura de una Cadena de texto
@@ -253,7 +239,7 @@ void cuerpoSentencia():
     <COMILLADOB>
     (
       <IDENTIFICADOR> | <NUMERO> | Operadores() | Simbolos()
-    )+
+    )+ 
     <COMILLADOB>
   }
 
