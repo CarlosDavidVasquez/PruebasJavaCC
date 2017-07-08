@@ -36,7 +36,7 @@ TOKEN:
 {
   // Condicionales
     <IF: "si">{System.out.println("IF -> "+image);}
-  | <ELSE: "si no">{System.out.println("ELSE -> "+image);}
+  | <ELSE: "sino">{System.out.println("ELSE -> "+image);}
   | <SWITCH: "menusi">{System.out.println("MENUSI -> "+image);}
   | <CASE: "caso">{System.out.println("CASO -> "+image);}
   | <PREDETERMINADO: "predeterminado">{System.out.println("PREDETERMINADO -> "+image);}
