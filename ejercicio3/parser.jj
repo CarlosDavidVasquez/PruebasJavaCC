@@ -181,9 +181,10 @@ void funcionReturn():
 void Sentencias():
 {}
 {
-    // ( declaracionAsignacion() | sentenciaFor() )*
+    // ( declaracionAsignacion() | sentenciaX() )* X=cualquier sentencia
     declaracionAsignacion()
   | sentenciaIf()
+  | sentenciaMenuSi()
   | Acciones()
 }
 
