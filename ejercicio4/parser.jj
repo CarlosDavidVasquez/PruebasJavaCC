@@ -120,6 +120,7 @@ TOKEN:
 {
     <ENTERO: "entero" >{System.out.println("ENTERO ->"+image);}
   | <DOBLE: "doble" >{System.out.println("DOBLE -> "+image);}
+  | <CARACTER: "caracter" >{System.out.println("CARACTER -> "+image);}
   | <CADENA: "cadena" >{System.out.println("CADENA -> "+image);}
 }
 
