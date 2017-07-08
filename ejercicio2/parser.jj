@@ -271,7 +271,7 @@ void cuerpoSentencia():
   {}
   {
     (<IDENTIFICADOR> | <NUMERO> | Cadena())
-    ( operadoresAritmeticos() <IDENTIFICADOR> | <NUMERO> | Cadena() )?
+    ( operadoresAritmeticos() <NUMERO> )?
   }
   
   void operadoresComparacion():
