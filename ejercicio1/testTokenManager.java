@@ -908,7 +908,7 @@ static void TokenLexicalActions(Token matchedToken)
       case 1 :
         image.append(jjstrLiteralImages[1]);
         lengthOfMatch = jjstrLiteralImages[1].length();
-                   System.out.println("MAIN -> "+image);
+                      System.out.println("MAIN -> "+image);
          break;
       case 2 :
         image.append(jjstrLiteralImages[2]);

@@ -9,7 +9,7 @@ public interface testConstants {
   /** End of File. */
   int EOF = 0;
   /** RegularExpression Id. */
-  int MAIN = 1;
+  int INICIAL = 1;
   /** RegularExpression Id. */
   int INCLUDE = 2;
   /** RegularExpression Id. */

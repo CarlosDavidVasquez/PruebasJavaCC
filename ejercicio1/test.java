@@ -58,7 +58,7 @@ class test implements testConstants {
 // Estructura del programa general
   static final public void metodoPrincipal() throws ParseException {
     tipoFuncion();
-    jj_consume_token(MAIN);
+    jj_consume_token(INICIAL);
     jj_consume_token(PARENTESISIZQ);
     funcionArgs();
     jj_consume_token(PARENTESISDER);

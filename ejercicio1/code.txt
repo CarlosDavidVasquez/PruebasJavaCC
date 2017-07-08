@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 int main(void)
-{
-    entero i;
-    mensaje("Introduzca número del 1 al 5:");
+{   
+    entero i;
+    mensaje("Introduzca número del 1 al 5:");
     leer("%d",&i);
     si (i!=4) {
       mensaje("Es primo.");
