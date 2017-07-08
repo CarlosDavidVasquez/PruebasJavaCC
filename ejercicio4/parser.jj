@@ -268,12 +268,12 @@ void cuerpoSentencia():
   void Cadena():
   {}
   {
-    <COMILLADOB>
+    (<COMILLA> | <COMILLADOB>)
     (
         <IDENTIFICADOR> | <NUMERO> | operadoresComparacion() 
       | operadoresAritmeticos() | operadoresLogicos() | Simbolos()
     )+ 
-    <COMILLADOB>
+    (<COMILLA> | <COMILLADOB>)
   }
 
   void usoIncremento():
