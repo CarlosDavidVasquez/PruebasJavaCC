@@ -133,6 +133,13 @@ TOKEN:
   }
 }
 
+// Librerias
+TOKEN:
+{
+    <STDIO: "stdio.h" >{System.out.println("STDIO.H ->"+image);}
+  | <STDLIB: "stdlib.h" >{System.out.println("STDLIB.H ->"+image);}
+}
+
 // Tipos de valores
 TOKEN:
 {
