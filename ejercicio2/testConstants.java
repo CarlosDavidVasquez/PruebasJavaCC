@@ -61,49 +61,57 @@ public interface testConstants {
   /** RegularExpression Id. */
   int PUNTO = 26;
   /** RegularExpression Id. */
-  int PORCENTAJE = 27;
+  int AMPERSAND = 27;
   /** RegularExpression Id. */
-  int AMPERSAND = 28;
+  int ASIGNACION = 28;
   /** RegularExpression Id. */
-  int ASIGNACION = 29;
+  int MAS = 29;
   /** RegularExpression Id. */
-  int INCREMENTO = 30;
+  int MENOS = 30;
   /** RegularExpression Id. */
-  int DECREMENTO = 31;
+  int ASTERISCO = 31;
   /** RegularExpression Id. */
-  int MENOR = 32;
+  int BARRA = 32;
   /** RegularExpression Id. */
-  int MAYOR = 33;
+  int PORCENTAJE = 33;
   /** RegularExpression Id. */
-  int MENORIGUAL = 34;
+  int INCREMENTO = 34;
   /** RegularExpression Id. */
-  int MAYORIGUAL = 35;
+  int DECREMENTO = 35;
   /** RegularExpression Id. */
-  int IGUAL = 36;
+  int MENOR = 36;
   /** RegularExpression Id. */
-  int DISTINTO = 37;
+  int MAYOR = 37;
   /** RegularExpression Id. */
-  int AND = 38;
+  int MENORIGUAL = 38;
   /** RegularExpression Id. */
-  int OR = 39;
+  int MAYORIGUAL = 39;
   /** RegularExpression Id. */
-  int NOT = 40;
+  int IGUAL = 40;
   /** RegularExpression Id. */
-  int ENTERO = 41;
+  int DISTINTO = 41;
   /** RegularExpression Id. */
-  int DOBLE = 42;
+  int AND = 42;
   /** RegularExpression Id. */
-  int CADENA = 43;
+  int OR = 43;
   /** RegularExpression Id. */
-  int INT = 44;
+  int NOT = 44;
   /** RegularExpression Id. */
-  int FLOAT = 45;
+  int ENTERO = 45;
   /** RegularExpression Id. */
-  int STRING = 46;
+  int DOBLE = 46;
   /** RegularExpression Id. */
-  int NUMERO = 47;
+  int CADENA = 47;
   /** RegularExpression Id. */
-  int IDENTIFICADOR = 48;
+  int INT = 48;
+  /** RegularExpression Id. */
+  int FLOAT = 49;
+  /** RegularExpression Id. */
+  int STRING = 50;
+  /** RegularExpression Id. */
+  int NUMERO = 51;
+  /** RegularExpression Id. */
+  int IDENTIFICADOR = 52;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -137,9 +145,13 @@ public interface testConstants {
     "\"\\\"\"",
     "\",\"",
     "\".\"",
-    "\"%\"",
     "\"&\"",
     "\"=\"",
+    "\"+\"",
+    "\"-\"",
+    "\"*\"",
+    "\"\\\\\"",
+    "\"%\"",
     "\"++\"",
     "\"--\"",
     "\"<\"",
