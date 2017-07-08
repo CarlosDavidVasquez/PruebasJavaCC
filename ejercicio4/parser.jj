@@ -199,7 +199,7 @@ void Sentencias():
   void tipoVariable():
   {}
   {
-    <ENTERO> | <DOBLE> | <CADENA>
+    <ENTERO> | <DOBLE> | <CARACTER> | <CADENA>
   }
 // ---------------
 
