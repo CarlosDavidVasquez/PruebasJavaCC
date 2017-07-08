@@ -103,17 +103,19 @@ public interface testConstants {
   /** RegularExpression Id. */
   int DOBLE = 47;
   /** RegularExpression Id. */
-  int CADENA = 48;
+  int CARACTER = 48;
   /** RegularExpression Id. */
-  int INT = 49;
+  int CADENA = 49;
   /** RegularExpression Id. */
-  int FLOAT = 50;
+  int INT = 50;
   /** RegularExpression Id. */
-  int STRING = 51;
+  int FLOAT = 51;
   /** RegularExpression Id. */
-  int NUMERO = 52;
+  int STRING = 52;
   /** RegularExpression Id. */
-  int IDENTIFICADOR = 53;
+  int NUMERO = 53;
+  /** RegularExpression Id. */
+  int IDENTIFICADOR = 54;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -168,6 +170,7 @@ public interface testConstants {
     "\"no\"",
     "\"entero\"",
     "\"doble\"",
+    "\"caracter\"",
     "\"cadena\"",
     "\"int\"",
     "\"float\"",

@@ -78,6 +78,7 @@ class test implements testConstants {
       case SWITCH:
       case ENTERO:
       case DOBLE:
+      case CARACTER:
       case CADENA:
         ;
         break;
@@ -104,6 +105,7 @@ class test implements testConstants {
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case ENTERO:
     case DOBLE:
+    case CARACTER:
     case CADENA:
       declaracionAsignacion();
       break;
@@ -146,6 +148,7 @@ class test implements testConstants {
     case SWITCH:
     case ENTERO:
     case DOBLE:
+    case CARACTER:
     case CADENA:
       Sentencias();
       break;
@@ -162,6 +165,9 @@ class test implements testConstants {
       break;
     case DOBLE:
       jj_consume_token(DOBLE);
+      break;
+    case CARACTER:
+      jj_consume_token(CARACTER);
       break;
     case CADENA:
       jj_consume_token(CADENA);
@@ -253,6 +259,7 @@ class test implements testConstants {
       case SWITCH:
       case ENTERO:
       case DOBLE:
+      case CARACTER:
       case CADENA:
         ;
         break;
@@ -270,6 +277,7 @@ class test implements testConstants {
       case SWITCH:
       case ENTERO:
       case DOBLE:
+      case CARACTER:
       case CADENA:
         Sentencias();
         break;
@@ -636,7 +644,7 @@ class test implements testConstants {
       jj_la1_0 = new int[] {0x200000,0x0,0x5c8,0x10,0x5c8,0x20000000,0x5c8,0x0,0x200,0x800,0x5c8,0x5c8,0xc8,0x7000000,0x7000000,0x3000000,0xfcfe0000,0xfcfe0000,0x3000000,0x3000000,0xc0000000,0x0,0xc0000000,0x0,0x3cfe0000,};
    }
    private static void jj_la1_init_1() {
-      jj_la1_1 = new int[] {0x0,0xe0000,0x1c000,0x0,0x1c000,0x0,0x1c000,0x1c000,0x0,0x0,0x1c000,0x1c000,0x0,0x0,0x0,0x0,0x303fff,0x303fff,0x0,0x300000,0x7,0x7f8,0x7,0x3800,0x0,};
+      jj_la1_1 = new int[] {0x0,0x1c0000,0x3c000,0x0,0x3c000,0x0,0x3c000,0x3c000,0x0,0x0,0x3c000,0x3c000,0x0,0x0,0x0,0x0,0x603fff,0x603fff,0x0,0x600000,0x7,0x7f8,0x7,0x3800,0x0,};
    }
 
   /** Constructor with InputStream. */
@@ -774,7 +782,7 @@ class test implements testConstants {
   /** Generate ParseException. */
   static public ParseException generateParseException() {
     jj_expentries.clear();
-    boolean[] la1tokens = new boolean[60];
+    boolean[] la1tokens = new boolean[61];
     if (jj_kind >= 0) {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
@@ -791,7 +799,7 @@ class test implements testConstants {
         }
       }
     }
-    for (int i = 0; i < 60; i++) {
+    for (int i = 0; i < 61; i++) {
       if (la1tokens[i]) {
         jj_expentry = new int[1];
         jj_expentry[0] = i;
