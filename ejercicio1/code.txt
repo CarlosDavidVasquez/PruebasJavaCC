@@ -1,0 +1,8 @@
+Programa for{
+  void Main(){
+    entero limite = 10;
+    para( i=1; i <= limite; i++){
+      mensaje("Limite = ", i );
+    }
+  }
+}

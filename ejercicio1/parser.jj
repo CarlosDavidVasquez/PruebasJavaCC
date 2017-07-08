@@ -1,0 +1,265 @@
+PARSER_BEGIN(test)
+
+class test{
+  public static void main(String[] args) throws ParseException{
+    try{
+      test analizador = new test(System.in);
+      analizador.Programa();
+      System.out.println("Se ha compilado con exito");
+    }catch(ParseException e){
+      System.out.println(e.getMessage());
+      System.out.println("Se han encontrado errores");
+    }
+  }
+}
+PARSER_END(test)
+
+// Palabras reservadas
+TOKEN:
+{
+    <MAIN: "void Main()">{System.out.println("MAIN -> "+image);}
+  | <PROGRAMA: "Programa">{System.out.println("PROGRAMA -> "+image);}
+  | <MESSAGE: "mensaje">{System.out.println("MENSAJE -> "+image);}
+}
+
+// Estructuras de control
+TOKEN:
+{
+  // Condicionales
+    <IF: "si">{System.out.println("IF -> "+image);}
+  | <ELSE: "si no">{System.out.println("ELSE -> "+image);}
+  | <SWITCH: "menusi">{System.out.println("MENUSI -> "+image);}
+  | <CASE: "caso">{System.out.println("CASO -> "+image);}
+  | <PREDETERMINADO: "predeterminado">{System.out.println("PREDETERMINADO -> "+image);}
+  | <BREAK: "Salir">{System.out.println("SALIR -> "+image);}
+}
+
+TOKEN:
+{
+  // Repetitivas
+   <WHILE: "mientras">{System.out.println("MIENTRAS -> "+image);}
+  | <DO: "hacer">{System.out.println("HACER -> "+image);}
+  | <FOR: "para">{System.out.println("PARA -> "+image);}
+}
+
+// Contenedores
+TOKEN:
+{
+    <PARENTESISIZQ: "(">{System.out.println("PARENTESISIZQ -> "+image);}
+  | <PARENTESISDER: ")">{System.out.println("PARENTESISDER -> "+image);}
+  | <LLAVEIZQ: "{">{System.out.println("LLAVEIZQ -> "+image+"\r\n");}
+  | <LLAVEDER: "}">{System.out.println("LLAVEDER -> "+image+"\r\n");}
+}
+
+// Signos
+TOKEN:
+{
+   <PUNTOYCOMA: ";">{System.out.println("PUNTOYCOMA -> "+image+"\r\n");}
+  | <DOSPUNTOS: ":">{System.out.println("DOSPUNTOS -> "+image+"\r\n");}
+  | <COMILLADOB: "\"">{System.out.println("COMILLADOBLE -> "+image+"\r\n");}
+  | <COMA: ",">{System.out.println("COMA -> "+image+"\r\n");}
+}
+
+// Operadores
+TOKEN:
+{
+    <ASIGNACION: "=" >{System.out.println("ASIGNACION -> "+image);}
+}
+
+// Incremento o Decremento
+TOKEN:
+{
+  <INCREMENTO: "++" >{System.out.println("INCREMENTO -> "+image);}
+  | <DECREMENTO: "--" >{System.out.println("DECREMENTO -> "+image);}
+}
+
+// Comparacion
+TOKEN:
+{
+   <MENOR: "<" >{System.out.println("MENORQUE -> "+image);}
+  | <MAYOR: ">" >{System.out.println("MAYORQUE -> "+image);}
+  | <MENORIGUAL: "<=" >{System.out.println("MENOROIGUALQUE -> "+image);}
+  | <MAYORIGUAL: ">=" >{System.out.println("MAYOROIGUALQUE -> "+image);}
+  | <IGUAL: "==" >{System.out.println("IGUAL -> "+image);}
+}
+
+// Operadores Logicos
+TOKEN:
+{
+    <AND: "y">{System.out.println("OPERADOR_Y -> "+image);}
+  | <OR: "o">{System.out.println("OPERADOR_O -> "+image);}
+  | <NOT: "no">{System.out.println("OPERADOR_NO -> "+image);}
+  /*
+  | <AND: "&&">{System.out.println("OPERADOR_Y -> "+image);}
+  | <OR: "||">{System.out.println("OPERADOR_O -> "+image);}
+  | <NOT: "!">{System.out.println("OPERADOR_NO -> "+image);}
+  */
+}
+
+// Tipos de Variables
+TOKEN:
+{
+    <INT: "entero" >{System.out.println("ENTERO ->"+image);}
+  //| <DOUBLE: ["0"-"9"]([".", "0"-"9"])+ >{System.out.println("DOUBLE -> "+image);}
+}
+
+// Tipos de valores
+TOKEN:
+{
+   <NUMERO: (["0"-"9"])+ >{System.out.println("NUMERO -> "+image);}
+  // | <IDENTIFICADOR: ["a"-"z","A"-"Z"](["a"-"z","A"-"Z","0"-"9","_","\u00f1"])* >{System.out.println("IDENTIFICADOR -> "+image);}
+  | <IDENTIFICADOR: ["a"-"z","A"-"Z"](["a"-"z","A"-"Z","0"-"9","_"])* >{System.out.println("IDENTIFICADOR -> "+image);}
+}
+
+// Caracteres omitidos
+SKIP:
+{
+  " " | "\r\n" | "\t" | "\r" | "\n"
+}
+
+// Estructura del programa general
+  void Programa():
+  {}
+  {
+    <PROGRAMA><IDENTIFICADOR><LLAVEIZQ>metodoPrincipal()<LLAVEDER><EOF>
+  }
+
+// Estructura del metodo principal MAIN
+  void metodoPrincipal():
+  {}
+  {
+    <MAIN>
+    // <LLAVEIZQ>Sentencias()<LLAVEDER>
+    <LLAVEIZQ>Sentencias()<LLAVEDER>
+  }
+
+void Sentencias():
+{}
+{
+    // ( declaracionAsignacion() | sentenciaFor() )*
+    declaracionAsignacion()
+  | sentenciaFor()
+}
+
+  // Declaracion y Asignacion
+  void declaracionAsignacion():
+  {}
+  {
+    (tipoVariable())? <IDENTIFICADOR> <ASIGNACION> Valor() <PUNTOYCOMA> Sentencias()
+  }
+
+// ---------------
+
+// Tipos de Variables
+  void tipoVariable():
+  {}
+  {
+        <INT>
+      //| <DOUBLE>
+  }
+// ---------------
+
+// void VS():
+// {}
+// {
+//     (declaracionAsignacion() <PUNTOYCOMA>)
+//   | Sentencias()
+// }
+
+// Estructura Repetitiva FOR
+  void sentenciaFor():
+  {}
+  {
+    <FOR>forArgs()
+    cuerpoSentencia()
+  }
+
+void forArgs():
+{}
+{
+  <PARENTESISIZQ>
+    asignacionFor() <PUNTOYCOMA>
+    comparacionSimple()<PUNTOYCOMA>
+    usoIncremento()
+  <PARENTESISDER>
+}
+
+void asignacionFor():
+{}
+{
+  <IDENTIFICADOR> <ASIGNACION> <NUMERO>
+}
+
+void cuerpoSentencia():
+{}
+{
+  <LLAVEIZQ> Acciones() <LLAVEDER>
+}
+
+// Acciones posibles a ejecutar
+  void Acciones():
+  {}
+  {
+    Mensaje()<PUNTOYCOMA>
+  }
+// ---------------
+
+// Estructura del Metodo mostrar un Mensaje
+  void Mensaje():
+  {}
+  {
+    <MESSAGE><PARENTESISIZQ> (Cadena() | <COMA> <IDENTIFICADOR>)* <PARENTESISDER>
+  }
+// ---------------
+
+// Estructura de una Cadena de texto
+  void Cadena():
+  {}
+  {
+    <COMILLADOB>
+    (
+      <IDENTIFICADOR> | <NUMERO> | Operadores()
+    )+
+    <COMILLADOB>
+  }
+// ---------------
+
+// Operaciones de Incrementos o Decrementos
+  void usoIncremento():
+  {}
+  {
+    <IDENTIFICADOR><INCREMENTO>
+  }
+
+  void usoDecremento():
+  {}
+  {
+    <IDENTIFICADOR><DECREMENTO>
+  }
+
+// ---------------
+
+  // Comparacion Simple
+    void comparacionSimple():
+    {}
+    {
+      Valor() Operadores() Valor()
+    }
+
+    // Tipos de valores
+      void Valor():
+      {}
+      {
+        <IDENTIFICADOR> | <NUMERO>
+        // | Cadena()
+      }
+    // ---------------
+
+// Tipos de Operadores
+  void Operadores():
+  {}
+  {
+    <MENOR> | <MAYOR> | <IGUAL> | <MENORIGUAL> | <MAYORIGUAL> | <ASIGNACION>
+  | <INCREMENTO> | <DECREMENTO>
+  }
+// ---------------
