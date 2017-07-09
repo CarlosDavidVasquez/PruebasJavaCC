@@ -259,6 +259,16 @@ void casoPredeterminado():
   <BREAK><PUNTOYCOMA>
 }
 
+void sentenciaWhile():
+      {}
+      {
+        <WHILE><PARENTIZQ> comparacionSimple() <PARENTDER> <LLAVEIZQ>
+          cuerpoSentencia()
+          (usoIncremento() | usoDecremento() | incrementoUso() | decrementoUso() ) <PUNTOYCOMA>
+        <LLAVEDER>
+        Sentencias()
+      }
+
 void cuerpoSentencia():
 {}
 {
@@ -300,6 +310,18 @@ void cuerpoSentencia():
   {}
   {
     <IDENTIFICADOR><DECREMENTO>
+  }
+
+  void incrementoUso():
+  {}
+  {
+    <INCREMENTO><IDENTIFICADOR>
+  }
+
+  void decrementoUso():
+  {}
+  {
+    <DECREMENTO><IDENTIFICADOR>
   }
 
    void comparacionSimple():
