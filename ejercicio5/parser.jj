@@ -285,6 +285,12 @@ void cuerpoSentencia():
   (Sentencias())*
 }
 
+void cuerpoSentenciaLlaves():
+{}
+{
+  <LLAVEIZQ> (Sentencias())* <LLAVEDER>
+}
+
   void Acciones():
   {}
   {
