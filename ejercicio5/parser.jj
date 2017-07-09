@@ -182,7 +182,7 @@ void funcionArgs():
 void funcionReturn():
 {}
 {
-  <REGRESAR> Valor()
+  <REGRESAR> Valor() <PUNTOYCOMA>
 }
 
 // Estructura del programa general
@@ -190,7 +190,7 @@ void funcionReturn():
   {}
   {
     tipoFuncion()<INICIAL><PARENTESISIZQ>(funcionArgs())?<PARENTESISDER>
-    <LLAVEIZQ> (Sentencias())* (funcionReturn()<PUNTOYCOMA>)? <LLAVEDER> <EOF>
+    <LLAVEIZQ> (Sentencias())* <LLAVEDER> <EOF>
   }
 
 void Sentencias():
@@ -203,6 +203,7 @@ void Sentencias():
   | sentenciaWhile()
   | sentenciaFor()
   | Acciones()
+  | funcionReturn()
 }
 
  void declaracionAsignacion():
