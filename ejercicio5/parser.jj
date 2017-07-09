@@ -301,7 +301,7 @@ void cuerpoSentencia():
   {
     (<COMILLA> | <COMILLADOB>)
     (
-        <IDENTIFICADOR> | <NUMERO> | <SALIR> | operadoresComparacion() 
+        <IDENTIFICADOR> | <NUMERO> | <BREAK> | operadoresComparacion() 
       | operadoresAritmeticos() | operadoresLogicos() | Simbolos() | Sentencias()
     )+ 
     (<COMILLA> | <COMILLADOB>)
