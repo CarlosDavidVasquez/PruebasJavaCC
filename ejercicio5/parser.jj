@@ -197,13 +197,11 @@ void Sentencias():
 {}
 {
     // ( declaracionAsignacion() | sentenciaX() )* X=cualquier sentencia
-    declaracionAsignacion()
+    Acciones()
   | sentenciaIf()
   | sentenciaMenuSi()
   | sentenciaWhile()
   | sentenciaFor()
-  | Acciones()
-  | funcionReturn()
 }
 
  void declaracionAsignacion():
@@ -250,7 +248,7 @@ void Caso():
 {}
 {
   <CASE>Valor()<DOSPUNTOS>
-    cuerpoSentencia()
+    Sentencias()
   <BREAK><PUNTOYCOMA>
 }
 
@@ -258,18 +256,15 @@ void casoPredeterminado():
 {}
 {
   <PREDETERMINADO><DOSPUNTOS>
-    cuerpoSentencia()
+    Sentencias()
   <BREAK><PUNTOYCOMA>
 }
 
 void sentenciaWhile():
       {}
       {
-        <WHILE><PARENTESISIZQ> comparacionSimple() <PARENTESISDER> <LLAVEIZQ>
-          cuerpoSentencia()
-          (opIncremento()<PUNTOYCOMA>)?
-        <LLAVEDER>
-        // Sentencias()
+        <WHILE><PARENTESISIZQ> comparacionSimple() <PARENTESISDER> 
+        cuerpoSentenciaLlaves()
       }
 
 void sentenciaFor():
@@ -282,7 +277,7 @@ void cuerpoSentencia():
 {}
 {
   // (Acciones() | Sentencias())*
-  (Sentencias())*
+  Acciones()
 }
 
 void cuerpoSentenciaLlaves():
@@ -294,7 +289,10 @@ void cuerpoSentenciaLlaves():
   void Acciones():
   {}
   {
-      metodosReservados()<PUNTOYCOMA>
+        metodosReservados()<PUNTOYCOMA>
+      | funcionReturn()
+      | declaracionAsignacion()
+      | (opIncremento()<PUNTOYCOMA>)
   }
 
 // Metodos propios del lenguaje
