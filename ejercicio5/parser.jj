@@ -208,7 +208,7 @@ void Sentencias():
  void declaracionAsignacion():
  {}
  {
-   tipoVariable() <IDENTIFICADOR> (<ASIGNACION> Valor())?<PUNTOYCOMA> (Sentencias())?
+   tipoVariable() <IDENTIFICADOR> (<ASIGNACION> Valor())?<PUNTOYCOMA> //(Sentencias())?
  }
 
   void tipoVariable():
@@ -242,7 +242,7 @@ void sentenciaMenuSi():
           (Caso())+
           casoPredeterminado()
         <LLAVEDER>
-        Sentencias()
+        // Sentencias()
       }
 
 void Caso():
@@ -268,7 +268,7 @@ void sentenciaWhile():
           cuerpoSentencia()
           opIncremento()<PUNTOYCOMA>
         <LLAVEDER>
-        Sentencias()
+        // Sentencias()
       }
 
 void sentenciaFor():
@@ -280,7 +280,8 @@ void sentenciaFor():
 void cuerpoSentencia():
 {}
 {
-  (Acciones() | Sentencias())*
+  // (Acciones() | Sentencias())*
+  (Sentencias())*
 }
 
   void Acciones():
