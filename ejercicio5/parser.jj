@@ -264,10 +264,8 @@ void sentenciaWhile():
       {
         <WHILE><PARENTESISIZQ> comparacionSimple() <PARENTESISDER> <LLAVEIZQ>
           cuerpoSentencia()
-          (
-              <IDENTIFICADOR><INCREMENTO> | <IDENTIFICADOR><DECREMENTO> 
-            | <INCREMENTO><IDENTIFICADOR> | <DECREMENTO><IDENTIFICADOR>
-          ) <PUNTOYCOMA>
+          opIncremento()
+            <PUNTOYCOMA>
         <LLAVEDER>
         Sentencias()
       }
@@ -303,28 +301,11 @@ void cuerpoSentencia():
     (<COMILLA> | <COMILLADOB>)
   }
 
-  void usoIncremento():
+  void opIncremento():
   {}
   {
-    <IDENTIFICADOR><INCREMENTO>
-  }
-
-  void usoDecremento():
-  {}
-  {
-    <IDENTIFICADOR><DECREMENTO>
-  }
-
-  void incrementoUso():
-  {}
-  {
-    <INCREMENTO><IDENTIFICADOR>
-  }
-
-  void decrementoUso():
-  {}
-  {
-    <DECREMENTO><IDENTIFICADOR>
+      <IDENTIFICADOR><INCREMENTO> | <IDENTIFICADOR><DECREMENTO> 
+    | <INCREMENTO><IDENTIFICADOR> | <DECREMENTO><IDENTIFICADOR>
   }
 
    void comparacionSimple():
