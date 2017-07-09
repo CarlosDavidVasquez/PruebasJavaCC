@@ -266,7 +266,7 @@ void sentenciaWhile():
       {
         <WHILE><PARENTESISIZQ> comparacionSimple() <PARENTESISDER> <LLAVEIZQ>
           cuerpoSentencia()
-          opIncremento()<PUNTOYCOMA>
+          (opIncremento()<PUNTOYCOMA>)?
         <LLAVEDER>
         // Sentencias()
       }
