@@ -312,15 +312,19 @@ class test implements testConstants {
     cuerpoSentencia();
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case IDENTIFICADOR:
-      usoIncremento();
+      jj_consume_token(IDENTIFICADOR);
+      jj_consume_token(INCREMENTO);
       break;
-      usoDecremento();
+      jj_consume_token(IDENTIFICADOR);
+      jj_consume_token(DECREMENTO);
       break;
     case INCREMENTO:
-      incrementoUso();
+      jj_consume_token(INCREMENTO);
+      jj_consume_token(IDENTIFICADOR);
       break;
     case DECREMENTO:
-      decrementoUso();
+      jj_consume_token(DECREMENTO);
+      jj_consume_token(IDENTIFICADOR);
       break;
     default:
       jj_la1[16] = jj_gen;
