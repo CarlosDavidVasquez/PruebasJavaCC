@@ -264,7 +264,10 @@ void sentenciaWhile():
       {
         <WHILE><PARENTESISIZQ> comparacionSimple() <PARENTESISDER> <LLAVEIZQ>
           cuerpoSentencia()
-          (usoIncremento() | usoDecremento() | incrementoUso() | decrementoUso() ) <PUNTOYCOMA>
+          (
+              <IDENTIFICADOR><INCREMENTO> | <IDENTIFICADOR><DECREMENTO> 
+            | <INCREMENTO><IDENTIFICADOR> | <DECREMENTO><IDENTIFICADOR>
+          ) <PUNTOYCOMA>
         <LLAVEDER>
         Sentencias()
       }
