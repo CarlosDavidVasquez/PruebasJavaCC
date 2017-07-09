@@ -200,6 +200,7 @@ void Sentencias():
     declaracionAsignacion()
   | sentenciaIf()
   | sentenciaMenuSi()
+  | sentenciaFor()
   | Acciones()
 }
 
