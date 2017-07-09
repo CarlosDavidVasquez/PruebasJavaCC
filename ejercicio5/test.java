@@ -323,6 +323,10 @@ class test implements testConstants {
     Sentencias();
   }
 
+  static final public void sentenciaFor() throws ParseException {
+    jj_consume_token(FOR);
+  }
+
   static final public void cuerpoSentencia() throws ParseException {
     label_4:
     while (true) {
