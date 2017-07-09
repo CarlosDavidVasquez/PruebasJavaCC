@@ -303,8 +303,7 @@ void cuerpoSentencia():
   void opIncremento():
   {}
   {
-      <IDENTIFICADOR><INCREMENTO> | <IDENTIFICADOR><DECREMENTO> 
-    | <INCREMENTO><IDENTIFICADOR> | <DECREMENTO><IDENTIFICADOR>
+      <IDENTIFICADOR> ( <INCREMENTO> | <DECREMENTO> )
   }
 
    void comparacionSimple():
