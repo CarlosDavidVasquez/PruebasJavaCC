@@ -295,7 +295,7 @@ void cuerpoSentencia():
     (<COMILLA> | <COMILLADOB>)
     (
         <IDENTIFICADOR> | <NUMERO> | operadoresComparacion() 
-      | operadoresAritmeticos() | operadoresLogicos() | Simbolos()
+      | operadoresAritmeticos() | operadoresLogicos() | Simbolos() | Sentencias()
     )+ 
     (<COMILLA> | <COMILLADOB>)
   }
