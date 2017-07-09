@@ -110,6 +110,7 @@ class test implements testConstants {
       case SISTEMA:
       case IF:
       case SWITCH:
+      case WHILE:
       case FOR:
       case ENTERO:
       case DOBLE:
@@ -150,6 +151,9 @@ class test implements testConstants {
     case SWITCH:
       sentenciaMenuSi();
       break;
+    case WHILE:
+      sentenciaWhile();
+      break;
     case FOR:
       sentenciaFor();
       break;
@@ -184,6 +188,7 @@ class test implements testConstants {
     case SISTEMA:
     case IF:
     case SWITCH:
+    case WHILE:
     case FOR:
     case ENTERO:
     case DOBLE:
@@ -341,6 +346,7 @@ class test implements testConstants {
       case SISTEMA:
       case IF:
       case SWITCH:
+      case WHILE:
       case FOR:
       case ENTERO:
       case DOBLE:
@@ -360,6 +366,7 @@ class test implements testConstants {
         break;
       case IF:
       case SWITCH:
+      case WHILE:
       case FOR:
       case ENTERO:
       case DOBLE:
@@ -495,6 +502,7 @@ class test implements testConstants {
       case SISTEMA:
       case IF:
       case SWITCH:
+      case WHILE:
       case FOR:
       case ENTERO:
       case DOBLE:
@@ -514,6 +522,7 @@ class test implements testConstants {
       case IF:
       case SWITCH:
       case BREAK:
+      case WHILE:
       case FOR:
       case PARENTESISIZQ:
       case PARENTESISDER:
@@ -759,7 +768,7 @@ class test implements testConstants {
       jj_la1_init_1();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0x0,0x0,0x200000,0x0,0x20,0x105c8,0x10,0x105c8,0x20000000,0x105c8,0x0,0x80000,0x100000,0x80000,0x100000,0x200,0x800,0x105c8,0x105c8,0xc8,0x7000000,0x7000000,0x3000000,0xfcff25c8,0xfcff25c8,0x3000000,0x0,0x3000000,0xc0000000,0x0,0xc0000000,0x0,0x3cfe0000,};
+      jj_la1_0 = new int[] {0x0,0x0,0x200000,0x0,0x20,0x145c8,0x10,0x145c8,0x20000000,0x145c8,0x0,0x80000,0x100000,0x80000,0x100000,0x200,0x800,0x145c8,0x145c8,0xc8,0x7000000,0x7000000,0x3000000,0xfcff65c8,0xfcff65c8,0x3000000,0x0,0x3000000,0xc0000000,0x0,0xc0000000,0x0,0x3cfe0000,};
    }
    private static void jj_la1_init_1() {
       jj_la1_1 = new int[] {0x600000,0x1600000,0x0,0x1c0000,0x0,0x3c000,0x0,0x3c000,0x0,0x3c000,0x3c000,0x0,0x0,0x0,0x0,0x0,0x0,0x3c000,0x3c000,0x0,0x0,0x0,0x0,0x183ffff,0x183ffff,0x0,0x18,0x1800000,0x7,0x7f8,0x7,0x3800,0x0,};
