@@ -230,9 +230,9 @@ void sentenciaIf():
 {}
 {
   <IF> <PARENTESISIZQ> comparacionSimple() <PARENTESISDER>
-  (<LLAVEIZQ>)? cuerpoSentencia() (<LLAVEDER>)?
+   (cuerpoSentencia() | cuerpoSentenciaLlaves())
   (
-    <ELSE> (<LLAVEIZQ>)? cuerpoSentencia() (<LLAVEDER>)?
+    <ELSE> (cuerpoSentencia() | cuerpoSentenciaLlaves())
   )?
 }
 
