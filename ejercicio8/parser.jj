@@ -267,7 +267,7 @@ void sentenciaWhile():
 void sentenciaFor():
 {}
 {
-  <FOR><PARENTESISIZQ> asignacionFor() <PUNTOYCOMA> comparacionSimple() <PUNTOYCOMA> opIncremento() <PARENTESISDER>
+  <FOR><PARENTESISIZQ> asignacionFor() <PUNTOYCOMA> comparacionSimple() <PUNTOYCOMA> operacionAritmetica() <PARENTESISDER>
   (cuerpoSentencia() | cuerpoSentenciaLlaves())
 }
 
@@ -298,7 +298,7 @@ void cuerpoSentenciaLlaves():
         metodosReservados()<PUNTOYCOMA>
       | metodoMensaje()
       | funcionReturn()
-      | (opIncremento()<PUNTOYCOMA>)
+      | (operacionAritmetica()<PUNTOYCOMA>)
   }
 
 void sentenciaDoWhile():
@@ -334,18 +334,12 @@ void sentenciaDoWhile():
     (<COMILLA> | <COMILLADOB>)
   }
 
-  operacionAritmetica():
+  void operacionAritmetica():
   {}
   {
-    Valor() operadoresAritmeticos() Valor()
+    (<IDENTIFICADOR> | <NUMERO>) operadoresAritmeticos() ((<IDENTIFICADOR> | <NUMERO>))?
   }
-
-  void opIncremento():
-  {}
-  {
-      <IDENTIFICADOR> ( <INCREMENTO> | <DECREMENTO> )
-  }
-
+  
    void comparacionSimple():
    {}
    {
@@ -370,7 +364,8 @@ void sentenciaDoWhile():
   void operadoresAritmeticos():
   {}
   {
-    <MAS> | <MENOS> | <ASTERISCO> | <BARRA> | <PORCENTAJE>
+      <MAS> | <MENOS> | <ASTERISCO> | <BARRA> | <PORCENTAJE> 
+    | <SUMAASIGNACION> | <RESTAASIGNACION> | <INCREMENTO> | <DECREMENTO>
   }
 
   void operadoresLogicos():
