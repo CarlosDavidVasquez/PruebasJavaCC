@@ -201,6 +201,7 @@ void Sentencias():
   | sentenciaIf()
   | sentenciaMenuSi()
   | sentenciaWhile()
+  | sentenciaDoWhile()
   | sentenciaFor()
 }
 
@@ -294,6 +295,14 @@ void cuerpoSentenciaLlaves():
       | declaracionAsignacion()
       | (opIncremento()<PUNTOYCOMA>)
   }
+
+void sentenciaDoWhile():
+{}
+{
+  <DO>
+    cuerpoSentenciaLlaves()
+  <WHILE><PARENTIZQ> comparacionSimple() <PARENTDER><PUNTOYCOMA>
+}
 
 // Metodos propios del lenguaje
   void metodosReservados():
