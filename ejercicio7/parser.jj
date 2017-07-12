@@ -1,0 +1,372 @@
+PARSER_BEGIN(test)
+
+class test{
+  public static void main(String[] args) throws ParseException{
+    try{
+      test analizador = new test(System.in);
+      analizador.codigoFuente();
+      System.out.println("Se ha compilado con exito");
+    }catch(ParseException e){
+      System.out.println(e.getMessage());
+      System.out.println("Se han encontrado errores");
+    }
+  }
+}
+PARSER_END(test)
+
+// Palabras reservadas
+TOKEN:
+{
+    <INICIAL: "main">{System.out.println("MAIN -> "+image);}
+  | <INCLUDE: "include">{System.out.println("INCLUIR -> "+image);}
+  | <MESSAGE: "mensaje">{System.out.println("MENSAJE -> "+image);}
+  | <REGRESAR: "regresar">{System.out.println("REGRESAR -> "+image);}
+  | <VOID: "void">{System.out.println("VOID -> "+image);}
+}
+
+// Entradas y salidas del sistema en consola
+TOKEN:
+{
+    <LEER: "leer">{System.out.println("LEER -> "+image);}
+   | <SISTEMA: "sistema">{System.out.println("SISTEMA -> "+image);}
+}
+
+// Estructuras de control
+TOKEN:
+{
+  // Condicionales
+    <IF: "si">{System.out.println("IF -> "+image);}
+  | <ELSE: "sino">{System.out.println("ELSE -> "+image);}
+  | <SWITCH: "menusi">{System.out.println("MENUSI -> "+image);}
+  | <CASE: "caso">{System.out.println("CASO -> "+image);}
+  | <PREDETERMINADO: "predeterminado">{System.out.println("PREDETERMINADO -> "+image);}
+  | <BREAK: "salir">{System.out.println("SALIR -> "+image);}
+}
+
+TOKEN:
+{
+  // Repetitivas
+   <WHILE: "mientras">{System.out.println("MIENTRAS -> "+image);}
+  | <DO: "hacer">{System.out.println("HACER -> "+image);}
+  | <FOR: "para">{System.out.println("PARA -> "+image);}
+}
+
+// Contenedores
+TOKEN:
+{
+    <PARENTESISIZQ: "(">{System.out.println("PARENTESISIZQ -> "+image);}
+  | <PARENTESISDER: ")">{System.out.println("PARENTESISDER -> "+image);}
+  | <LLAVEIZQ: "{">{System.out.println("LLAVEIZQ -> "+image+"\r\n");}
+  | <LLAVEDER: "}">{System.out.println("LLAVEDER -> "+image+"\r\n");}
+}
+
+// Simbolos
+TOKEN:
+{
+    <NUMERAL: "#">{System.out.println("NUMERAL -> "+image);}
+  | <PUNTOYCOMA: ";">{System.out.println("PUNTOYCOMA -> "+image+"\r\n");}
+  | <DOSPUNTOS: ":">{System.out.println("DOSPUNTOS -> "+image);}
+  | <COMILLA: "\'">{System.out.println("COMILLA -> "+image);}  
+  | <COMILLADOB: "\"">{System.out.println("COMILLADOBLE -> "+image);}
+  | <COMA: ",">{System.out.println("COMA -> "+image);}
+  | <PUNTO: ".">{System.out.println("PUNTO -> "+image);}
+  | <AMPERSAND: "&">{System.out.println("AMPERSAND -> "+image);}
+  | <ADMIRACIONDER: "!">{System.out.println("ADMIRACIONDER -> "+image);}
+}
+
+// Operadores Aritmeticos
+TOKEN:
+{
+      <ASIGNACION: "=" >{System.out.println("ASIGNACION -> "+image);}
+    | <MAS: "+" >{System.out.println("MAS -> "+image);}
+    | <MENOS: "-" >{System.out.println("MENOS -> "+image);}
+    | <ASTERISCO: "*" >{System.out.println("ASTERISCO -> "+image);}
+    | <BARRA: "\\" >{System.out.println("BARRA -> "+image);}
+    | <PORCENTAJE: "%">{System.out.println("PORCENTAJE -> "+image);}
+}
+
+// Incremento o Decremento
+TOKEN:
+{
+  <INCREMENTO: "++" >{System.out.println("INCREMENTO -> "+image);}
+  | <DECREMENTO: "--" >{System.out.println("DECREMENTO -> "+image);}
+}
+
+// Comparacion
+TOKEN:
+{
+   <MENOR: "<" >{System.out.println("MENORQUE -> "+image);}
+  | <MAYOR: ">" >{System.out.println("MAYORQUE -> "+image+"\r\n");}
+  | <MENORIGUAL: "<=" >{System.out.println("MENOROIGUALQUE -> "+image);}
+  | <MAYORIGUAL: ">=" >{System.out.println("MAYOROIGUALQUE -> "+image);}
+  | <IGUAL: "==" >{System.out.println("IGUAL -> "+image);}
+  | <DISTINTO: "!=" >{System.out.println("DISTINTO -> "+image);}
+}
+
+// Operadores Logicos
+TOKEN:
+{
+    <AND: "y">{System.out.println("OPERADOR_Y -> "+image);}
+  | <OR: "o">{System.out.println("OPERADOR_O -> "+image);}
+  | <NOT: "no">{System.out.println("OPERADOR_NO -> "+image);}
+  /*
+  | <AND: "&&">{System.out.println("OPERADOR_Y -> "+image);}
+  | <OR: "||">{System.out.println("OPERADOR_O -> "+image);}
+  | <NOT: "!">{System.out.println("OPERADOR_NO -> "+image);}
+  */
+}
+
+// Tipos de Variables
+TOKEN:
+{
+    <ENTERO: "entero" >{System.out.println("ENTERO ->"+image);}
+  | <DOBLE: "doble" >{System.out.println("DOBLE -> "+image);}
+  | <CARACTER: "caracter" >{System.out.println("CARACTER -> "+image);}
+  | <CADENA: "cadena" >{System.out.println("CADENA -> "+image);}
+}
+
+// Tipos de funciones
+TOKEN:
+{
+    <INT: "int" >{System.out.println("TYPEINT ->"+image);}
+  | <FLOAT: "float" >{System.out.println("TYPEFLOAT ->"+image);}
+  | <STRING: "string" >{System.out.println("TYPESTRING ->"+image);
+  }
+}
+
+// Librerias
+TOKEN:
+{
+    <STDIO: "stdio.h" >{System.out.println("STDIO.H ->"+image);}
+  | <STDLIB: "stdlib.h" >{System.out.println("STDLIB.H ->"+image);}
+}
+
+// Tipos de valores
+TOKEN:
+{
+   <NUMERO: (["0"-"9"])+ >{System.out.println("NUMERO -> "+image);}
+  // | <IDENTIFICADOR: ["a"-"z","A"-"Z"](["a"-"z","A"-"Z","0"-"9","_","\u00f1"])* >{System.out.println("IDENTIFICADOR -> "+image);}
+  | <IDENTIFICADOR: ["a"-"z","A"-"Z"](["a"-"z","A"-"Z","0"-"9","_","\u00e1","\u00e9", "\u00ed", "\u00f3", "\u00fa", "\u00f1"])* >{System.out.println("IDENTIFICADOR -> "+image);}
+}
+
+// Caracteres omitidos
+SKIP:
+{
+" " | "\r\n" | "\t" | "\r" | "\n" | "\u00a0"
+}
+
+void Libreria():
+{}
+{
+  <STDIO> | <STDLIB>
+}
+
+void codigoFuente():
+{}
+{
+  (<NUMERAL><INCLUDE> <MENOR> (Libreria() | <IDENTIFICADOR><PUNTO><IDENTIFICADOR>) <MAYOR>)+
+  metodoPrincipal()
+}
+
+void tipoFuncion():
+{}
+{
+  <INT> | <FLOAT> | <STRING>
+}
+
+void funcionArgs():
+{}
+{
+  <VOID>
+}
+
+void funcionReturn():
+{}
+{
+  <REGRESAR> Valor() <PUNTOYCOMA>
+}
+
+// Estructura del programa general
+  void metodoPrincipal():
+  {}
+  {
+    tipoFuncion()<INICIAL><PARENTESISIZQ>(funcionArgs())?<PARENTESISDER>
+    <LLAVEIZQ> (Sentencias())* <LLAVEDER> <EOF>
+  }
+
+void Sentencias():
+{}
+{
+    // ( declaracionAsignacion() | sentenciaX() )* X=cualquier sentencia
+    Acciones()
+  | sentenciaIf()
+  | sentenciaMenuSi()
+  | sentenciaWhile()
+  | sentenciaDoWhile()
+  | sentenciaFor()
+}
+
+ void declaracionAsignacion():
+ {}
+ {
+   tipoVariable() <IDENTIFICADOR> (<ASIGNACION> Valor())?<PUNTOYCOMA> //(Sentencias())?
+ }
+
+  void tipoVariable():
+  {}
+  {
+    <ENTERO> | <DOBLE> | <CARACTER> | <CADENA>
+  }
+// ---------------
+
+// void VS():
+// {}
+// {
+//     (declaracionAsignacion() <PUNTOYCOMA>)
+//   | Sentencias()
+// }
+
+void sentenciaIf():
+{}
+{
+  <IF> <PARENTESISIZQ> comparacionSimple() <PARENTESISDER>
+   (cuerpoSentencia() | cuerpoSentenciaLlaves())
+  (
+    <ELSE> (cuerpoSentencia() | cuerpoSentenciaLlaves())
+  )?
+}
+
+void sentenciaMenuSi():
+      {}
+      {
+        <SWITCH><PARENTESISIZQ><IDENTIFICADOR><PARENTESISDER><LLAVEIZQ>
+          (Caso())+
+          casoPredeterminado()
+        <LLAVEDER>
+        // Sentencias()
+      }
+
+void Caso():
+{}
+{
+  <CASE>Valor()<DOSPUNTOS>
+    Sentencias()
+  <BREAK><PUNTOYCOMA>
+}
+
+void casoPredeterminado():
+{}
+{
+  <PREDETERMINADO><DOSPUNTOS>
+    Sentencias()
+  <BREAK><PUNTOYCOMA>
+}
+
+void sentenciaWhile():
+      {}
+      {
+        <WHILE><PARENTESISIZQ> comparacionSimple() <PARENTESISDER> 
+        cuerpoSentenciaLlaves()
+      }
+
+void sentenciaFor():
+{}
+{
+  <FOR>
+}
+
+void cuerpoSentencia():
+{}
+{
+  // (Acciones() | Sentencias())*
+  Acciones()
+}
+
+void cuerpoSentenciaLlaves():
+{}
+{
+  <LLAVEIZQ> (Sentencias())* <LLAVEDER>
+}
+
+  void Acciones():
+  {}
+  {
+        metodosReservados()<PUNTOYCOMA>
+      | funcionReturn()
+      | declaracionAsignacion()
+      | (opIncremento()<PUNTOYCOMA>)
+  }
+
+void sentenciaDoWhile():
+{}
+{
+  <DO>
+    cuerpoSentenciaLlaves()
+  <WHILE><PARENTESISIZQ> comparacionSimple() <PARENTESISDER><PUNTOYCOMA>
+}
+
+// Metodos propios del lenguaje
+  void metodosReservados():
+  {}
+  {
+    (<LEER> | <SISTEMA> | <MESSAGE>) <PARENTESISIZQ> (Cadena() | <COMA><AMPERSAND><IDENTIFICADOR>)* <PARENTESISDER>
+  }
+
+// Estructura de una Cadena de texto
+  void Cadena():
+  {}
+  {
+    (<COMILLA> | <COMILLADOB>)
+    (
+        <IDENTIFICADOR> | <NUMERO> | <BREAK> | operadoresComparacion() 
+      | operadoresAritmeticos() | operadoresLogicos() | Simbolos() | Sentencias()
+    )+ 
+    (<COMILLA> | <COMILLADOB>)
+  }
+
+  void opIncremento():
+  {}
+  {
+      <IDENTIFICADOR> ( <INCREMENTO> | <DECREMENTO> )
+  }
+
+   void comparacionSimple():
+   {}
+   {
+     Valor() operadoresComparacion() Valor()
+   }
+
+// Tipos de valores
+  void Valor():
+  {}
+  {
+    (<IDENTIFICADOR> | <NUMERO> | Cadena())
+    ( operadoresAritmeticos() <NUMERO> )?
+  }
+  
+  void operadoresComparacion():
+  {}
+  {
+    <MENOR> | <MAYOR> | <IGUAL> | <DISTINTO> | <MENORIGUAL> | <MAYORIGUAL>
+  | <INCREMENTO> | <DECREMENTO> 
+  }
+
+  void operadoresAritmeticos():
+  {}
+  {
+    <MAS> | <MENOS> | <ASTERISCO> | <BARRA> | <PORCENTAJE>
+  }
+
+  void operadoresLogicos():
+  {}
+  {
+    <AND> | <OR> | <NOT>
+  }
+
+  void Simbolos():
+  {}
+  {
+      <NUMERAL> | <COMA> | <PUNTO> | <DOSPUNTOS> | <PUNTOYCOMA> | <PARENTESISIZQ> 
+    | <PARENTESISDER> | <LLAVEIZQ> | <LLAVEDER> | <AMPERSAND> | <ADMIRACIONDER>
+    | <ASIGNACION>
+  }
