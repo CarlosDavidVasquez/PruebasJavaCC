@@ -209,7 +209,7 @@ void Sentencias():
  void declaraciones():
  {}
  {
-    tipoVariable() <IDENTIFICADOR> (<ASIGNACION> Valor() | (<COMA> <IDENTIFICADOR>)+)
+    tipoVariable() <IDENTIFICADOR> (<ASIGNACION> Valor() | (<COMA> <IDENTIFICADOR>)+)?
  }
 
   void tipoVariable():
