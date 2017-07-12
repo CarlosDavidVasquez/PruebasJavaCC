@@ -196,20 +196,20 @@ void funcionReturn():
 
 void Sentencias():
 {}
-{
-    // ( declaracionAsignacion() | sentenciaX() )* X=cualquier sentencia
-    Acciones()
+{ 
+   Acciones()
   | sentenciaIf()
   | sentenciaMenuSi()
   | sentenciaWhile()
   | sentenciaDoWhile()
   | sentenciaFor()
+  | declaraciones()<PUNTOYCOMA>
 }
 
- void declaracionAsignacion():
+ void declaraciones():
  {}
  {
-   tipoVariable() <IDENTIFICADOR> (<ASIGNACION> Valor())?<PUNTOYCOMA> //(Sentencias())?
+    tipoVariable() <IDENTIFICADOR> (<ASIGNACION> Valor() | (<COMA> <IDENTIFICADOR>)+)
  }
 
   void tipoVariable():
@@ -218,13 +218,6 @@ void Sentencias():
     <ENTERO> | <DOBLE> | <CARACTER> | <CADENA>
   }
 // ---------------
-
-// void VS():
-// {}
-// {
-//     (declaracionAsignacion() <PUNTOYCOMA>)
-//   | Sentencias()
-// }
 
 void sentenciaIf():
 {}
@@ -272,14 +265,23 @@ void sentenciaWhile():
 void sentenciaFor():
 {}
 {
-  <FOR>
+  <FOR><PARENTESISIZQ> asignacionFor() <PUNTOYCOMA> comparacionSimple() <PUNTOYCOMA> opIncremento() <PARENTESISDER>
+  (cuerpoSentencia() | cuerpoSentenciaLlaves())
+}
+
+void asignacionFor():
+{}
+{
+  <IDENTIFICADOR> <ASIGNACION> <NUMERO>
 }
 
 void cuerpoSentencia():
 {}
 {
-  // (Acciones() | Sentencias())*
-  Acciones()
+    Acciones()
+  | sentenciaIf()
+  | sentenciaFor()
+
 }
 
 void cuerpoSentenciaLlaves():
@@ -292,8 +294,8 @@ void cuerpoSentenciaLlaves():
   {}
   {
         metodosReservados()<PUNTOYCOMA>
+      | metodoMensaje()
       | funcionReturn()
-      | declaracionAsignacion()
       | (opIncremento()<PUNTOYCOMA>)
   }
 
@@ -309,7 +311,13 @@ void sentenciaDoWhile():
   void metodosReservados():
   {}
   {
-    (<LEER> | <SISTEMA> | <MESSAGE>) <PARENTESISIZQ> (Cadena() | <COMA><AMPERSAND><IDENTIFICADOR>)* <PARENTESISDER>
+    (<LEER> | <SISTEMA>) <PARENTESISIZQ> (Cadena() | <COMA><AMPERSAND><IDENTIFICADOR>)* <PARENTESISDER>
+  }
+
+  void metodoMensaje():
+  {}
+  {
+    <MESSAGE> <PARENTESISIZQ> ((Cadena() | Valor()) (<COMA>)? )+ <PARENTESISDER><PUNTOYCOMA>
   }
 
 // Estructura de una Cadena de texto
@@ -341,7 +349,7 @@ void sentenciaDoWhile():
   {}
   {
     (<IDENTIFICADOR> | <NUMERO> | Cadena())
-    ( operadoresAritmeticos() <NUMERO> )?
+    ( operadoresAritmeticos() (<IDENTIFICADOR> | <NUMERO> | Cadena()) )?
   }
   
   void operadoresComparacion():
