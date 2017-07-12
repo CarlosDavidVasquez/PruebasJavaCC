@@ -272,7 +272,7 @@ void sentenciaFor():
 void asignacionFor():
 {}
 {
-  <IDENTIFICADOR> <ASIGNACION> <NUMERO>
+  <IDENTIFICADOR> <ASIGNACION> Valor()
 }
 
 void cuerpoSentencia():
