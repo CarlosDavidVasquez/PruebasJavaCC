@@ -301,7 +301,7 @@ void sentenciaDoWhile():
 {
   <DO>
     cuerpoSentenciaLlaves()
-  <WHILE><PARENTIZQ> comparacionSimple() <PARENTDER><PUNTOYCOMA>
+  <WHILE><PARENTESISIZQ> comparacionSimple() <PARENTESISDER><PUNTOYCOMA>
 }
 
 // Metodos propios del lenguaje
