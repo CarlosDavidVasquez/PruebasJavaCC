@@ -78,6 +78,8 @@ TOKEN:
 TOKEN:
 {
       <ASIGNACION: "=" >{System.out.println("ASIGNACION -> "+image);}
+    | <SUMAASIGNACION: "+=" >{System.out.println("SUMAASIGNACION -> "+image);}
+    | <RESTAASIGNACION: "-=" >{System.out.println("RESTAASIGNACION -> "+image);}
     | <MAS: "+" >{System.out.println("MAS -> "+image);}
     | <MENOS: "-" >{System.out.println("MENOS -> "+image);}
     | <ASTERISCO: "*" >{System.out.println("ASTERISCO -> "+image);}
