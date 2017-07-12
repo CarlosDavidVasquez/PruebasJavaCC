@@ -71,6 +71,7 @@ TOKEN:
   | <COMA: ",">{System.out.println("COMA -> "+image);}
   | <PUNTO: ".">{System.out.println("PUNTO -> "+image);}
   | <AMPERSAND: "&">{System.out.println("AMPERSAND -> "+image);}
+  | <ADMIRACIONDER: "!">{System.out.println("ADMIRACIONDER -> "+image);}
 }
 
 // Operadores Aritmeticos
@@ -366,5 +367,6 @@ void sentenciaDoWhile():
   {}
   {
       <NUMERAL> | <COMA> | <PUNTO> | <DOSPUNTOS> | <PUNTOYCOMA> | <PARENTESISIZQ> 
-    | <PARENTESISDER> | <LLAVEIZQ> | <LLAVEDER> | <AMPERSAND> | <ASIGNACION>
+    | <PARENTESISDER> | <LLAVEIZQ> | <LLAVEDER> | <AMPERSAND> | <ADMIRACIONDER>
+    | <ASIGNACION>
   }
