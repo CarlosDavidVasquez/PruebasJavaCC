@@ -328,8 +328,8 @@ void sentenciaDoWhile():
   {
     (<COMILLA> | <COMILLADOB>)
     (
-        <IDENTIFICADOR> | <NUMERO> | <BREAK> | operadoresComparacion() 
-      | operadoresAritmeticos() | operadoresLogicos() | Simbolos() | Sentencias()
+        <IDENTIFICADOR> | <NUMERO> | <BREAK> | operadoresComparacion() | tipoFuncion()
+      | operadoresAritmeticos() | operadoresLogicos() | Simbolos() | palabrasReservadas()
     )+ 
     (<COMILLA> | <COMILLADOB>)
   }
@@ -381,3 +381,12 @@ void sentenciaDoWhile():
     | <PARENTESISDER> | <LLAVEIZQ> | <LLAVEDER> | <AMPERSAND> | <ADMIRACIONDER>
     | <ASIGNACION>
   }
+
+void palabrasReservadas():
+{}
+{
+    <INICIAL> | <INCLUDE> | <MESSAGE> | <REGRESAR> | <VOID>
+    | <LEER> | <SISTEMA> | <IF> | <ELSE> | <SWITCH>
+    | <CASE> | <PREDETERMINADO> | <BREAK> | <WHILE> 
+    | <DO> | <FOR> | <STDIO> | <STDLIB>
+}
