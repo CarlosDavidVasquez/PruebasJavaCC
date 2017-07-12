@@ -334,6 +334,12 @@ void sentenciaDoWhile():
     (<COMILLA> | <COMILLADOB>)
   }
 
+  operacionAritmetica():
+  {}
+  {
+    Valor() operadoresAritmeticos() Valor()
+  }
+
   void opIncremento():
   {}
   {
